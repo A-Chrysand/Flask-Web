@@ -11,32 +11,32 @@
 .nav-item
 	cursor: pointer
 
-@media (max-width:992px)
-	.nav-link
-		text-align: left
-
-@media (min-width:992px)
-	.nav-link
-		text-align: center
 
 .nav-link
 	padding-left: 0.5rem !important
+	@media (max-width: 992px)
+		text-align: left
+	@media (min-width: 992px)
+		text-align: center
 
 	&.active
 		background-color: rgb(71, 123, 243) !important
 
-#theme_switch .disactive
-	display: none
-
-@media (max-width:992px)
-	#theme_switch
+#theme_switch
+	@media (max-width: 992px)
 		position: fixed
 		z-index: 3
 		top: 8px
 		right: 80px
 
-	#light_off,	#light_on
-		margin-top: 0.2rem
 
 #light_off, #light_on
 	cursor: pointer
+	@media (max-width: 992px)
+		margin-top: 0.2rem
+
+	&.disactive
+		display: none
+
+
+

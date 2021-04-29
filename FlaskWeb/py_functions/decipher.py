@@ -26,19 +26,29 @@ class Decipher:
 
 	def post_process(self):
 		j = 0
-		res = ""  # 定义结果存储变量
+		res = ""  # 定义解密结果字符串存储变量
+		temp = []  # 定义切分结果列表存储变量
 		for i in self.Spliced_Encoded_Int:
 			res += chr(self.Spliced_Encoded_Int[j])  # 整形ASCII码转字符
 			j += 1
-		cut_account = res[:res.index('/')]
-		cut_passwd = res[res.index('/'):].lstrip('/')
-		return [cut_account, cut_passwd]
+		num_of_v = res.count('/')
+		# print("解码结果(" + str(num_of_v) + '/)>' + res)
+		for i in range(num_of_v + 1):
+			if i != num_of_v:
+				temp.append(res[:res.index('/')])
+				res = res.lstrip(temp[i])  # 删除字符串前第i次切的
+				res = res.lstrip('/')  # 删除切掉后遗留的'/' #若与上面一起切的话，如果遇到账号=密码，那么会把相同的都切掉
+			else:
+				temp.append(res)
+				break
+		return temp
 
 	def process_num(self, encoded_str):
 		self.pre_process(encoded_str)
 		pi = (
 			3, 6, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 6, 2, 3, 8, 4, 6, 2, 6, 4, 3, 3, 8, 3, 2, 7, 9, 5, 0, 2, 8,
 			8, 4, 1, 9)  # 9796<-？？？
+		pi = pi + pi
 		j = 0
 		for i in self.Spliced_Encoded_Float:
 			self.Spliced_Encoded_Float[j] -= pi[j]
@@ -49,20 +59,46 @@ class Decipher:
 			self.Spliced_Encoded_Float[j] -= pi[j]
 			self.Spliced_Encoded_Int.append(int(round(self.Spliced_Encoded_Float[j], 1)))
 			j += 1
-		# print("计算结果"+self.Spliced_Encoded_Float, end="->")
-		result_str = self.post_process()
-		# print("明文>", end="")
-		# print(result_str)
+		result_strs = self.post_process()  # 这个result_strs是列表[]
 		self.reset_variable()  # 执行变量重置
-		return self.check_in(result_str)
+		return result_strs
 
-	def check_in(slef, result_str):
-		db_check = AccountDB()
-		return db_check.search(result_str)
+	def login_check(self, check_str):
+		temp = self.process_num(check_str)  # temp是列表[]
+		db_login_check = AccountDB()
+		dbreturn = db_login_check.login_search(temp)
+		if dbreturn == 0:
+			print('>>>' + '\033[0;33m' + 'dbcheck false' + '\033[0m', end="")
+			print('\033[0;36m' + '(User NotFound)' + '\033[0m', end="")
+			return 'usernotfound'
+		elif dbreturn == 1:
+			print('>>>' + '\033[0;33m' + 'password incorrect' + '\033[0m', end="")
+			return 'passwderr'
+		elif dbreturn == 2:
+			print('>>>' + '\033[0;33m' + 'dbcheck false' + '\033[0m', end="")
+			print('>>>' + '\033[1;31;40m' + 'dbcheck false(too many item)' + '\033[0m', end="")
+			return 'toomany'
+		elif dbreturn == 10:
+			print('>>>' + '\033[0;32m' + 'dbcheck success' + '\033[0m', end="")
+			return 'success'
+
+	def register_check(self, check_str_object):
+		temp = self.process_num(check_str_object)
+		temp_accpsw = [temp[0], temp[2]]
+		registercheck = AccountDB()
+		dbreturn = registercheck.register_search(temp_accpsw)
+		if (dbreturn[0] and dbreturn[1]):
+			return registercheck.register_write(temp)
+		elif (dbreturn[0] == False):
+			print("User Registed")
+			return 'userregisted'
+		elif (dbreturn[1] == False):
+			print("Email Registed")
+			return 'mailregisted'
 
 	def reset_variable(self):
 		self.Spliced_Encoded_Float.clear()  # 清除全局存储变量
 		self.Spliced_Encoded_Int.clear()  # 清除全局存储变量
 
-# ste = Decipher()
-# ste.process_num("9779087357949069878434982")
+# st = Decipher()
+# st.post_process()

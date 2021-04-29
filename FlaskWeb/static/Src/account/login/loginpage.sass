@@ -1,0 +1,75 @@
+body
+	min-width: 300px
+	background: url("../../../Media/img/bg/Jirachi.png") top no-repeat
+	background-size: 100%
+
+.container-fluid
+	height: 100vh
+
+#account_box
+	background: rgba(255, 255, 255, 0.25)
+	border: wheat 2px solid
+	border-radius: 20px
+	padding: 1.5rem 1rem
+	@media (max-width: 499px)
+		margin-top: -50px
+	@media (min-width: 992px)
+		margin-top: 50px
+		max-width: 500px
+		margin-left: calc(50% - 250px)
+	@media (min-width: 500px) and (max-width: 991px)
+		margin-top: 50px
+		max-width: 500px
+		margin-left: calc(50% - 250px)
+
+
+#account_box_top
+	color: tomato
+	position: relative
+	width: 100%
+	--account_box_top_height: 4rem
+	height: var(--account_box_top_height)
+
+#text_leftarrow,
+#text_rightarrow
+	cursor: pointer
+	z-index: 1
+	line-height: var(--account_box_top_height)
+	position: absolute
+
+#text_leftarrow
+	display: none
+	left: calc(0px + 2rem)
+
+#text_rightarrow
+	right: calc(0px + 2rem)
+
+
+#text_denglu,
+#text_zhuce
+	cursor: pointer
+	font-weight: 300
+	position: absolute
+	line-height: var(--account_box_top_height)
+
+
+#text_denglu
+	cursor: default
+	font-size: 3.5rem
+
+
+#text_zhuce
+	right: 0
+	font-size: 1rem
+
+label
+	color: black
+	font-weight: 400
+	text-align: right
+
+
+input
+	border: rgb(143, 143, 143) 1px solid
+	border-radius: 5px
+	height: 2rem
+

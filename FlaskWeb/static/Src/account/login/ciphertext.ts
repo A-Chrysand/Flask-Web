@@ -18,10 +18,10 @@ let Generate = {
             //miwenstr += miwen[i];
             miwenstr += ((miwen[i]).toString().slice(0, 3) + (miwen[i].toString().slice(4, 4 + this.jingdu)));
         }
-        //console.log("Ã÷ÎÄ:           " + mingwen);
+        //console.log("æ˜Žæ–‡:           " + mingwen);
         //console.log("Ascii:          " + asciicode);
-        //console.log("ÃÜÎÄint array:  " + miwen);
-        //console.log("ÃÜÎÄString(" + miwenstr.length + "): " + miwenstr);
+        //console.log("å¯†æ–‡int array:  " + miwen);
+        //console.log("å¯†æ–‡String(" + miwenstr.length + "): " + miwenstr);
         //console.log({miwen, miwenstr});
         return {miwen, miwenstr};
     },
@@ -41,8 +41,8 @@ let Generate = {
                 sendoutstr += (parseInt(miwenstr[miwenstr.length - 1]));
             }
         }
-        //console.log("×ªÂëArray:      " + sendout);
-        //console.log("·¢ËÍ±¨ÎÄ:       " + sendoutstr);
+        //console.log("å‘é€Array:      " + sendout);
+        //console.log("å‘é€String:       " + sendoutstr);
         //$("#text2").html(sendout);
     },
 
@@ -64,8 +64,8 @@ let Generate = {
         }
         //$("#text3").html(sendoutstr);
         return sendoutstr;
-        //console.log("×ªÂëArray:      " + sendout);
-        //console.log("·¢ËÍ±¨ÎÄ:       " + sendoutstr);
+        //console.log("å‘é€Array:      " + sendout);
+        //console.log("å‘é€String:       " + sendoutstr);
     },
     CreatePi: function () {
         let pi_char = ((Math.PI).toString()).split('');
@@ -82,7 +82,7 @@ let Generate = {
                 pi_num[i] = 6
             }
         }
-        //console.log(pi_num)
-        return pi_num
+        pi_num = pi_num.concat(pi_num);
+        return pi_num;
     }
 }

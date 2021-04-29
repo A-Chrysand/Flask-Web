@@ -15,28 +15,21 @@
   cursor: pointer;
 }
 
+.nav-link {
+  padding-left: 0.5rem !important;
+}
 @media (max-width: 992px) {
   .nav-link {
     text-align: left;
   }
 }
-
 @media (min-width: 992px) {
   .nav-link {
     text-align: center;
   }
 }
-
-.nav-link {
-  padding-left: 0.5rem !important;
-}
-
 .nav-link.active {
   background-color: #477bf3 !important;
-}
-
-#theme_switch .disactive {
-  display: none;
 }
 
 @media (max-width: 992px) {
@@ -46,12 +39,18 @@
     top: 8px;
     right: 80px;
   }
-  #light_off, #light_on {
-    margin-top: 0.2rem;
-  }
 }
 
 #light_off, #light_on {
   cursor: pointer;
 }
-/*# sourceMappingURL=index.css.map */
+@media (max-width: 992px) {
+  #light_off, #light_on {
+    margin-top: 0.2rem;
+  }
+}
+#light_off.disactive, #light_on.disactive {
+  display: none;
+}
+
+/*# sourceMappingURL=home.css.map */

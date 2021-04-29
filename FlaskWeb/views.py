@@ -29,12 +29,20 @@ def home():
 	)
 
 
-@app.route("/js_post/<getdata>", methods=['GET', 'POST'])
-def js_post(getdata):
-	print('\tPOST from>>>' + request.remote_addr + '->' + getdata, end="")
-	if Decipher().process_num(getdata):
-		print("->login success")
-		return redirect(url_for('home'))
+@app.route("/login_js_post/<login_getdata>", methods=['POST'])
+def login_js_post(login_getdata):
+	print('\tPOST from>>>' + request.remote_addr, end="")
+	logincheck_result = Decipher().login_check(login_getdata)
+	if logincheck_result == 'success':
+		print("->" + '\033[0;32m' + "login success" + '\033[0m' + "||src=" + login_getdata)
+		return logincheck_result
 	else:
-		print("->login failed")
-		return "login fail"
+		print("->" + '\033[0;34m' + "login failed" + '\033[0m' + "||src=" + login_getdata)
+		return logincheck_result
+
+
+@app.route("/register_js_post/<RegisterCheck_getdata>", methods=['POST'])
+def register_js_post(RegisterCheck_getdata):
+	print('\tRegistering>>>' + request.remote_addr+">>>", end="")
+	registercheck_result = Decipher().register_check(RegisterCheck_getdata)
+	return registercheck_result

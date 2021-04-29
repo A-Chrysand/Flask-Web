@@ -39,8 +39,8 @@ var Generate = {
                 sendoutstr += (parseInt(miwenstr[miwenstr.length - 1]));
             }
         }
-        //console.log("转码Array:      " + sendout);
-        //console.log("发送报文:       " + sendoutstr);
+        //console.log("发送Array:      " + sendout);
+        //console.log("发送String:       " + sendoutstr);
         //$("#text2").html(sendout);
     },
     Cipher_Num: function (mingwen) {
@@ -60,8 +60,8 @@ var Generate = {
         }
         //$("#text3").html(sendoutstr);
         return sendoutstr;
-        //console.log("转码Array:      " + sendout);
-        //console.log("发送报文:       " + sendoutstr);
+        //console.log("发送Array:      " + sendout);
+        //console.log("发送String:       " + sendoutstr);
     },
     CreatePi: function () {
         var pi_char = ((Math.PI).toString()).split('');
@@ -80,7 +80,7 @@ var Generate = {
                 pi_num[i] = 6;
             }
         }
-        //console.log(pi_num)
+        pi_num = pi_num.concat(pi_num);
         return pi_num;
     }
 };
