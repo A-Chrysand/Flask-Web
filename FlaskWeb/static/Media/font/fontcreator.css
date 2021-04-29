@@ -1,0 +1,4 @@
+@font-face {
+	font-family: "Dreamweaver";
+	src: "{{url_for('staitc',filename='Media/font/Dreamweaver.woff')}}" format("woff");
+}

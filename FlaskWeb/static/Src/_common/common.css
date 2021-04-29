@@ -1,0 +1,18 @@
+body {
+	--navbar_Height: 50px;
+	--footer_Height: 24px;
+	--bg_light: rgb(255, 255, 254);
+	--bg_dark: rgba(200, 200, 200, 1);
+}
+
+.bg-dark {
+	background-color: var(--bg_dark) !important;
+}
+
+.bg-light {
+	background-color: var(--bg_light) !important;
+}
+
+.top-40 {
+	top: 40%;
+}

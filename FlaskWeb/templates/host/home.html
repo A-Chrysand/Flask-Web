@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="{{url_for('static',filename='Media/img/icon/favicon.png')}}" type="image/x-icon" />
+	<script src="{{url_for('static',filename='CodeBase/jquery-3.5.1.min.js')}}"></script>
+	<script src="{{url_for('static',filename='CodeBase/bootstrap.min.js')}}"></script>
+	<link href="{{url_for('static',filename='CodeBase/bootstrap.min.css')}}" rel="stylesheet">
+	<title>Dreamweaver</title>
+	<link rel="stylesheet" href="{{url_for('static', filename='Src/_common/common.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='Src/host/home.css')}}">
+</head>
+
+
+<body class="bg-light text-dark">
+	<nav id="navbar_top_main" class="navbar navbar-expand-lg navbar-light navbg-light" style="padding: 0px;">
+		<div class="container-fluid">
+			<!--导航栏左上角标头-->
+			<span class="navbar-brand">
+				<div class="d-inline-block align-top"
+					style="background-color: rgb(71, 223, 243);width: 30px;height: 30px;margin-top: calc((var(--navbar_Height) - 30px) / 2);">
+				</div>
+				<div class="d-inline-block align-top" style="width: 4em;">
+					<span class="d-block d-sm-none">当前为xs</span>
+					<span class="d-none d-sm-block d-md-none">当前为sm</span>
+					<span class="d-none d-md-block d-lg-none">当前为md</span>
+					<span class="d-none d-lg-block d-xl-none">当前为lg</span>
+					<span class="d-none d-xl-block d-xxl-none">当前为xl</span>
+					<span class="d-none d-xxl-block">当前为xxl</span>
+				</div>
+				<span>&nbsp;&lt;|&gt;&nbsp;</span>
+			</span>
+			<!--手机端导航栏汉堡菜单按钮-->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent"
+				aria-controls="NavbarContent" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!--桌面端导航栏-->
+			<div class="collapse navbar-collapse" id="NavbarContent">
+				<!--导航栏内容-->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item col-md-12 col-lg-3">
+						<a class="nav-link active">首页</a>
+					</li>
+					<li class="nav-item  col-md-12 col-lg-3">
+						<a class="nav-link">小卖部</a>
+					</li>
+					<li class="nav-item col-md-12 col-lg-3">
+						<a class="nav-link">停车场</a>
+					</li>
+					<li class="nav-item col-md-12 col-lg-4">
+						<a class="nav-link">WOL服务</a>
+					</li>
+					<li class="nav-item col-md-12 col-lg-4">
+						<a class="nav-link">开发及反馈</a>
+					</li>
+					<style>
+
+					</style>
+				</ul>
+
+			</div>
+			<div id="theme_switch">
+				<div id="light_off" class="active" onclick="SetLight()">
+					<img src="{{url_for('static', filename='Media/img/icon/brightness-alt-high-fill.svg')}}" width="25px">
+				</div>
+				<div id="light_on" class="disactive" onclick="SetLight()">
+					<img src="{{url_for('static', filename='Media/img/icon/brightness-high.png')}}" width="25px">
+				</div>
+				<style>
+
+				</style>
+				<script>
+					function SetLight() {
+						var LightOff_Class = 'bg-dark text-light';
+						var LightOn_Class = 'bg-light text-dark';
+						if ($("body").hasClass(LightOn_Class)) {
+							$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
+							$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
+							$("#light_off").removeClass("active").addClass("disactive");
+							$("#light_on").removeClass("disactive").addClass("active");
+							$("#Host_iframe").contents().find("body").removeClass(LightOn_Class).addClass(LightOff_Class);
+						}
+						else {
+							$("body").removeClass(LightOff_Class).addClass(LightOn_Class)
+							$("#navbar_top_main").removeClass("navbar-dark navbg-dark").addClass("navbar-light navbg-light");
+							$("#light_on").removeClass("active").addClass("disactive");
+							$("#light_off").removeClass("disactive").addClass("active");
+							$("#Host_iframe").contents().find("body").removeClass(LightOff_Class).addClass(LightOn_Class);
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</nav>
+
+	<div id="container_main" class="container-fluid" style="padding:0px">
+		<div id="Host_iframe" width="100%"></div>
+		<script>
+			var setHeight = 'calc(100vh - var(--navbar_Height) - var(--footer_Height))';
+			$("#container_main,#Host_iframe").css("height", setHeight);
+		</script>
+		<script src="{{url_for('static', filename='Src/apps/01_headpage.js')}}"></script>
+		<script src="{{url_for('static', filename='Src/apps/04_Wolserver.js')}}"></script>
+		<script src="{{url_for('static', filename='Src/apps/05_report.js')}}"></script>
+	</div>
+
+	<footer class="footer mt-auto container-fluid d-none d-lg-block">
+		<div class="row">
+			<span class="col d-lg-none d-xxl-block"></span>
+			<span class="col">1</span>
+			<span class="col">2</span>
+			<span class="col">3</span>
+			<span class="col">2</span>
+			<span class="col">1</span>
+			<span class="col d-lg-none d-xxl-block"></span>
+		</div>
+	</footer>
+	<style>
+		footer {
+			height: var(--footer_Height);
+			font-size: 0.75em;
+			padding: 3px;
+			text-align: center;
+			background-color: rgba(0, 113, 158, 0.2);
+		}
+	</style>
+</body>
+
+<script>
+	window.onload = function () {
+		Display_HeadPage('#Host_iframe');
+		console.log("done");
+	}
+
+	$(".nav-link:eq(0)").click(function () {
+		Display_HeadPage("#Host_iframe");
+		$(".nav-link").removeClass("active");
+		$(this).addClass("active");
+	});
+
+	$(".nav-link:eq(1)").click(function () {
+		//$("#Host_iframe").attr("src", "../apps/02_SmallStore.html");
+		$(".nav-link").removeClass("active");
+		$(this).addClass("active");
+	});
+
+	$(".nav-link:eq(2)").click(function () {
+		//$("#Host_iframe").attr("src", "../apps/03_Busstation.html");
+		$(".nav-link").removeClass("active");
+		$(this).addClass("active");
+	});
+
+	$(".nav-link:eq(3)").click(function () {
+		Display_Wolserver('#Host_iframe');
+		$(".nav-link").removeClass("active");
+		$(this).addClass("active");
+	});
+	$(".nav-link:eq(4)").click(function () {
+		Display_Common('#Host_iframe');
+		$(".nav-link").removeClass("active");
+		$(this).addClass("active");
+	});
+
+
+</script>
+
+</html>
