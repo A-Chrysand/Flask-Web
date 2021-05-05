@@ -1,3 +1,7 @@
+body {
+  --navbar_Height: 50px;
+}
+
 .navbar-brand {
   padding: 0px;
   line-height: var(--navbar_Height);
@@ -32,12 +36,15 @@
   background-color: #477bf3 !important;
 }
 
+#theme_switch, #wide_rightuser {
+  margin-right: 10px;
+}
 @media (max-width: 992px) {
-  #theme_switch {
-    position: fixed;
+  #theme_switch, #wide_rightuser {
+    position: absolute;
     z-index: 3;
     top: 8px;
-    right: 80px;
+    right: 70px;
   }
 }
 
@@ -51,6 +58,51 @@
 }
 #light_off.disactive, #light_on.disactive {
   display: none;
+}
+
+.RightUserItem {
+  display: inline-block;
+  line-height: var(--navbar_Height);
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+#wide_rightuser {
+  margin-right: 0px;
+}
+@media (min-width: 992px) {
+  #wide_rightuser {
+    display: block;
+    float: right;
+  }
+}
+@media (max-width: 992px) {
+  #wide_rightuser {
+    display: none;
+  }
+}
+#wide_rightuser .usericon {
+  margin-top: -0.2rem;
+}
+#wide_rightuser .dropdown-toggle::after {
+  margin-left: 0px !important;
+  filter: Invert inherit;
+}
+#wide_rightuser .dropdown-menu {
+  max-width: 10rem;
+  margin-top: 0px;
+  margin-left: calc(-5.7rem + 1px);
+}
+
+@media (min-width: 992px) {
+  #colled_rightuser {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  #colled_rightuser {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

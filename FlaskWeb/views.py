@@ -10,6 +10,12 @@ from FlaskWeb.py_functions.decipher import Decipher
 
 
 @app.route('/')
+def index():
+	return render_template(
+		'./host/index.html',
+		title='welcome',
+	)
+
 @app.route("/login")
 def login():
 	return render_template(
