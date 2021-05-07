@@ -1,3 +1,6 @@
+body
+	overflow-x: hidden
+
 .carousel-inner
 	.carousel-item
 		width: 100%
@@ -23,11 +26,49 @@
 			font-size: 1.25rem
 			line-height: 1.4
 
-.wrapper, .wrapper-2
+.wrapper
 	@media (max-width: 835px)
 		background-size: auto 512px !important
 	@media (min-width: 835px)
 		background-size: 100vw auto !important
+
+.wrapperx
+	@media(max-width: 760px)
+		--thisHeight: calc(100vw * 0.421)
+	@media(min-width: 760px)
+		--thisHeight: 20rem
+	width: 100%
+	max-width: 100%
+	height: var(--thisHeight)
+	margin-top: 3rem
+	background: url("../../Media/img/bg/midbanner.jpg") no-repeat center 23%
+	background-size: 100vw auto !important
+
+
+	.wrapper-indicator
+		@media(min-width: 760px)
+			--thisBarHeight: 7px
+			position: relative
+			top: calc(var(--thisHeight) - var(--thisBarHeight))
+			left: 0px
+			height: var(--thisBarHeight)
+			max-width: 100%
+			background-color: rgba(0, 205, 255, 0.53)
+		@media(max-width: 760px)
+			display: none
+
+		svg
+			width: 20px
+			height: 25px
+			position: absolute
+			top: -9px
+			//-9px=指示器进度条高度-svg高度
+			right: -10px
+
+			polygon
+				fill: rgb(10, 226, 255)
+				stroke: #077cff
+				stroke-width: 1
 
 .marketing
 	margin-top: 4rem
@@ -43,8 +84,6 @@
 	h2
 		font-weight: 400
 
-#midbanner
-	background: url("../../Media/img/bg/midbanner.jpg") no-repeat center top
 
 .featurette-divider
 	margin: 5rem 0
