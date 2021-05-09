@@ -1,0 +1,82 @@
+body
+	--navbar_Height: 50px
+
+.navbar-brand
+	padding: 0px
+	line-height: var(--navbar_Height)
+
+.navbg-light
+	background-color: rgb(250, 250, 245)
+
+.navbg-dark
+	background-color: rgb(30, 30, 30)
+
+.nav-item
+	cursor: pointer
+
+.nav-link
+	padding-left: 0.5rem !important
+	@media (max-width: 992px)
+		text-align: left
+	@media (min-width: 992px)
+		text-align: center
+
+	&.active
+		background-color: rgb(71, 123, 243) !important
+
+#theme_switch, #wide_rightuser
+	margin-right: 10px
+	@media (max-width: 992px)
+		position: absolute
+		z-index: 3
+		top: 8px
+		right: 70px
+
+
+#light_off, #light_on
+	cursor: pointer
+	@media (max-width: 992px)
+		margin-top: 0.2rem
+
+	&.disactive
+		display: none
+
+.RightUserItem
+	display: inline-block
+	line-height: var(--navbar_Height)
+	font-size: 18px
+	padding: 0 5px
+
+#wide_rightuser
+	margin-right: 0px
+	@media(min-width: 992px)
+		display: block
+		float: right
+	@media(max-width: 992px)
+		display: none
+
+	.usericon
+		margin-top: -0.2rem
+
+	.dropdown-toggle::after
+		margin-left: 0px !important
+		filter: Invert (inherit)
+
+	.dropdown-menu
+		max-width: 10rem
+		margin-top: 0px
+		margin-left: calc(-5.7rem + 1px)
+
+
+#colled_rightuser
+	@media(min-width: 992px)
+		display: none
+	@media(max-width: 992px)
+		display: block
+
+footer
+	height: var(--footer_Height)
+	font-size: 0.75em
+	padding: 3px
+	text-align: center
+	background-color: rgba(0, 113, 158, 0.2)
