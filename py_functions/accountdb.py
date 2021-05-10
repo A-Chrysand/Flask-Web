@@ -10,8 +10,12 @@ class AccountDB:
 		accountdb = sqlite3.connect(self.dbpath)  # 创建数据库对象
 		acc_db_cur = accountdb.cursor()  # 创建数据库指针
 		''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-		acc_db_cur.execute("\
-			SELECT Uname,Upasswd FROM user1 WHERE Uname=\"" + string_object[0] + "\"")  # 执行数据库操作
+		if '@' in string_object[0]:     #判断提交的字符串是否含有@号(邮箱)
+			acc_db_cur.execute("\
+				SELECT Umail,Upasswd FROM user1 WHERE Umail=\"" + string_object[0] + "\"")  # 执行数据库操作
+		else:
+			acc_db_cur.execute("\
+				SELECT Uname,Upasswd FROM user1 WHERE Uname=\"" + string_object[0] + "\"")  # 执行数据库操作
 		db_result = acc_db_cur.fetchall()  # 把查找结果赋值给db_result
 		acc_db_cur.close()
 		if len(db_result) == 0:  # 当结果列表长度为0（找不到用户）时返回0

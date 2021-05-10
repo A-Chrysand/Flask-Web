@@ -13,45 +13,12 @@ def index():
 		'index.html',
 	)
 
-
+#################################ACCOUNT#######################################################
 @app.route("/login")
 def login():
 	return render_template(
 		'./account/login.html',
 	)
-
-@app.route('/home/banner')
-def banner():
-    return render_template(
-	    'apps/01_banner.html',
-    )
-
-@app.route('/home/SmallStore')
-def smallstore():
-    return render_template(
-	    'apps/02_SmallStore.html',
-    )
-
-@app.route('/home/Busstation')
-def busstation():
-    return render_template(
-	    'apps/03_Busstation.html',
-
-    )
-
-@app.route('/home/Wolserver')
-def wolserver():
-    return render_template(
-	    'apps/04_Wolserver.html',
-    )
-
-@app.route('/home/report')
-def report():
-    return render_template(
-	    'apps/05_report.html',
-    )
-
-
 
 
 @app.route("/login_js_post/<login_getdata>", methods=['POST'])
@@ -72,6 +39,42 @@ def register_js_post(RegisterCheck_getdata):
 	registercheck_result = Decipher().register_check(RegisterCheck_getdata)
 	return registercheck_result
 
+##################################HOME INDEX###################################################
+@app.route('/home/banner')
+def banner():
+	return render_template(
+		'apps/01_banner.html',
+	)
 
+
+@app.route('/home/SmallStore')
+def smallstore():
+	return render_template(
+		'apps/02_SmallStore.html',
+	)
+
+
+@app.route('/home/Busstation')
+def busstation():
+	return render_template(
+		'apps/03_Busstation.html',
+
+	)
+
+
+@app.route('/home/Wolserver')
+def wolserver():
+	return render_template(
+		'apps/04_Wolserver.html',
+	)
+
+
+@app.route('/home/report')
+def report():
+	return render_template(
+		'apps/05_report.html',
+	)
+
+########################################################################################
 if __name__ == '__main__':
 	app.run()
