@@ -18,9 +18,25 @@ function createBundle(id, color, strwid) {
 }
 
 function jumptoIndex() {
-		window.location.href = "\\";
-		return false;
+	window.location.href = "\\";
+	return false;
+}
+
+
+function dispWindow() {
+	document.getElementById('tankuang').style.display = "";
+}
+function HideWindow(synth) {
+	if (synth == 'x')
+		$('#tankuang').css('display', "none")
+	else if (synth == 'yes') {
+		$("#Register_bottomtab #checkinfoinput").attr('checked','checked')
+		$('#tankuang').css('display', "none")
 	}
+}
+
+
+
 
 function changetologin() {
 	if (animatecounter) {

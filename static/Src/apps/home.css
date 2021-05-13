@@ -2,6 +2,10 @@ body {
   --navbar_Height: 50px;
 }
 
+.bg-dark {
+  background-color: #969696 !important;
+}
+
 .navbar-brand {
   padding: 0px;
   line-height: var(--navbar_Height);
@@ -22,16 +26,19 @@ body {
 .nav-link {
   padding-left: 0.5rem !important;
 }
+
 @media (max-width: 992px) {
   .nav-link {
     text-align: left;
   }
 }
+
 @media (min-width: 992px) {
   .nav-link {
     text-align: center;
   }
 }
+
 .nav-link.active {
   background-color: #477bf3 !important;
 }
@@ -39,6 +46,7 @@ body {
 #theme_switch, #wide_rightuser {
   margin-right: 10px;
 }
+
 @media (max-width: 992px) {
   #theme_switch, #wide_rightuser {
     position: absolute;
@@ -51,16 +59,19 @@ body {
 #light_off, #light_on {
   cursor: pointer;
 }
+
 @media (max-width: 992px) {
   #light_off, #light_on {
     margin-top: 0.2rem;
   }
 }
+
 #light_off.disactive, #light_on.disactive {
   display: none;
 }
 
 .RightUserItem {
+  cursor: pointer;
   display: inline-block;
   line-height: var(--navbar_Height);
   font-size: 18px;
@@ -70,24 +81,30 @@ body {
 #wide_rightuser {
   margin-right: 0px;
 }
+
 @media (min-width: 992px) {
   #wide_rightuser {
     display: block;
     float: right;
   }
 }
+
 @media (max-width: 992px) {
   #wide_rightuser {
     display: none;
   }
 }
+
 #wide_rightuser .usericon {
   margin-top: -0.2rem;
 }
+
 #wide_rightuser .dropdown-toggle::after {
   margin-left: 0px !important;
-  filter: Invert inherit;
+  -webkit-filter: Invert inherit;
+          filter: Invert inherit;
 }
+
 #wide_rightuser .dropdown-menu {
   max-width: 10rem;
   margin-top: 0px;
@@ -99,6 +116,7 @@ body {
     display: none;
   }
 }
+
 @media (max-width: 992px) {
   #colled_rightuser {
     display: block;
@@ -112,5 +130,4 @@ footer {
   text-align: center;
   background-color: rgba(0, 113, 158, 0.2);
 }
-
 /*# sourceMappingURL=home.css.map */

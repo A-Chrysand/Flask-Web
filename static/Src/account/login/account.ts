@@ -2,19 +2,20 @@ function logincheck() {
 	let username: string | number | string[] = $("#lg_input_text").val();
 	let userpasswd: string | number | string[] = $("#lg_input_psw").val();
 	let login_mingwen: string = username + '/' + userpasswd
+	// @ts-ignore
 	let login_sendout: string = Generate.Cipher_Num(login_mingwen);
 	//ORG $.post("/js_post/"+ip, data_to_backend, function(data){alert("success "+data)} );
 	$.post("/login_js_post/" + login_sendout, function (data) {
-			if (data == 'success') {
-				saveNopennewpage(username);
-				window.location.href = "\\home\\banner";
-			} else if (data == 'usernotfound') {
-				alert("用户名不存在");
-			} else if (data == 'passwderr') {
-				alert("密码错误");
-			}
-
+		if (data == 'success') {
+			saveNopennewpage(username);
+			window.location.href = "/home";
+		} else if (data == 'usernotfound') {
+			alert("用户名不存在");
+		} else if (data == 'passwderr') {
+			alert("密码错误");
 		}
+		console.log("EE");
+	}
 	)
 }
 
@@ -42,20 +43,25 @@ function register() {
 	} else if (typeof read_passwd !== "number" && read_passwd.length < 6) {
 		alert("输入的密码过短");
 		return;
-	} else {
+	} else if (!$('#checkinfoinput').is(':checked')) {
+		alert("请先阅读注意事项")
+		return
+	}
+	else {
 		register_js_post(read_username, read_passwd, read_email);
 	}
 }
 
 function register_js_post(send_username, send_passwd, send_email) {
 	let register_mingwen: string = send_username + '/' + send_passwd + '/' + send_email;
+	// @ts-ignore
 	let register_sendout: string = Generate.Cipher_Num(register_mingwen);
 	console.log(register_sendout);
 	$.post("/register_js_post/" + register_sendout, function (data) {
 		if (data == 'registersuccess') {
 			saveNopennewpage(send_username);
 			alert("注册成功");
-			window.location.href = "\\home\\banner";
+			window.location.href = "/home";
 		} else if (data == 'registerfail') {
 			alert("注册失败");
 		} else if (data == 'registererror') {
@@ -70,6 +76,7 @@ function register_js_post(send_username, send_passwd, send_email) {
 	});
 }
 
+
 function saveNopennewpage(save_username) {//保存当前用户并跳转到主页
-	sessionStorage.setItem("file_currentuser", JSON.stringify(save_username));//session保存数据到浏览器缓存
+	sessionStorage.setItem("file_currentuser", JSON.stringify(save_username))   //session保存数据到浏览器缓存
 }

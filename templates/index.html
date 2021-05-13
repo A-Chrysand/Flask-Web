@@ -218,7 +218,6 @@
 
 	$('.wrapper').mousemove(function (e) {
 		var HWR = 0.617;	//设置横幅广告背景高宽比为0.613（1000*613px），至于为什么要设置成0.6xx，我也不知道
-		//todo 此处根据EleWdith*HWR得到高度的算法有BUG
 		var EleWidth = ($(".wrapper").css('width'))
 		EleWidth = parseInt(EleWidth.slice(0, EleWidth.length - 2));
 		var EleHeight = 512
