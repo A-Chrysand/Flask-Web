@@ -6,6 +6,7 @@ Run app.py to start the server, view localhost:5000 in broswer to view the webit
 ```
 python app.py
 ```
+If you want to run on a server, you are need to change app.run(host='0.0.0.0',port=***AS YOU LIKE***) in app.py
 
 ## Function & plan:
 > * A introduction website(√)
@@ -25,14 +26,14 @@ python app.py
 > * Better encryption()
 
 ## Note
-Actually I have no idea about this project if can work successfully on my test device
+~~Actually I have no idea about this project if can work successfully on my test device~~
+Work Successfully, except downloading code from CND server.
 
-
-> Test device
-> CPU: AMD A6 3210M, An old low-end 4-core CPU
-> RAM: 4 Gigs of 1333MHz DDR3 Memory
-> Storage: 60G SSD for System and 1T 2.5inch 5400rpm HDD for extend storage
-> Network: Dual gigabyte ethernet controller and cat.6 cable
+> Test device  
+> CPU: AMD A6 3210M, An old low-end 4-core CPU  
+> RAM: 4 Gigs of 1333MHz DDR3 Memory  
+> Storage: 60G SSD for System and 1T 2.5inch 5400rpm HDD for extend storage  
+> Network: Dual gigabyte ethernet controller and cat.6 cable  
 
 ### keywords
 Python Flask Web HTML CSS SASS JavaScript Typescript JQuery Ajax SQl SQLite Linux Centos8
