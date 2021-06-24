@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="{{ url_for('static',filename='Media/img/icon/favicon.png') }}" type="image/x-icon" />
+	<link rel="icon" href="{{ url_for('static',filename='Media/img/icon/favicon.png') }}" type="image/x-icon"/>
 	<script src="{{ url_for('static',filename='CodeBase/jquery-3.5.1.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='CodeBase/bootstrap.min.js') }}"></script>
 	<link href="{{ url_for('static',filename='CodeBase/bootstrap.min.css') }}" rel="stylesheet">
@@ -15,12 +15,12 @@
 </head>
 
 <body class="bg-light text-dark">
-	<nav id="navbar_top_main" class="navbar navbar-expand-lg navbar-light navbg-light" style="padding: 0px;">
-		<div class="container-fluid">
-			<!--导航栏左上角标头-->
-			<span class="navbar-brand">
+<nav id="navbar_top_main" class="navbar navbar-expand-lg navbar-light navbg-light" style="padding: 0px;">
+	<div class="container-fluid">
+		<!--导航栏左上角标头-->
+		<span class="navbar-brand">
 				<div class="d-inline-block align-top"
-					style="background-color: rgb(71, 223, 243);width: 30px;height: 30px;margin-top: calc((var(--navbar_Height) - 30px) / 2);">
+				     style="background-color: rgb(71, 223, 243);width: 30px;height: 30px;margin-top: calc((var(--navbar_Height) - 30px) / 2);">
 				</div>
 				<div class="d-inline-block align-top" style="width: 4em;">
 					<span class="d-block d-sm-none">当前为xs</span>
@@ -32,138 +32,139 @@
 				</div>
 				<span>&nbsp;&lt;|&gt;&nbsp;</span>
 			</span>
-			<!--手机端导航栏汉堡菜单按钮-->
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent"
-				aria-controls="NavbarContent" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+		<!--手机端导航栏汉堡菜单按钮-->
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarContent"
+		        aria-controls="NavbarContent" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<!--桌面端导航栏-->
-			<div class="collapse navbar-collapse" id="NavbarContent">
-				<!--导航栏内容-->
-				<ul class="navbar-nav me-auto">
-					<li class="nav-item col-md-12 col-lg-3">
-						<a class="nav-link active" onclick="turnPage('/home/banner')">首页</a>
-					</li>
-					<li class="nav-item  col-md-12 col-lg-3">
-						<a class="nav-link" onclick="turnPage('/home/SmallStore')">小卖部</a>
-					</li>
-					<li class="nav-item col-md-12 col-lg-3">
-						<a class="nav-link" onclick="turnPage('/home/Busstation')">停车场</a>
-					</li>
-					<li class="nav-item col-md-12 col-lg-4">
-						<a class="nav-link" onclick="turnPage('/home/Wolserver')">WOL服务</a>
-					</li>
-					<li class="nav-item col-md-12 col-lg-4">
-						<a class="nav-link" onclick="turnPage('/home/report')">开发及反馈</a>
-					</li>
-					<li>
-						<hr class="dropdown-divider mb-0">
-					</li>
-				</ul>
-				<div id="colled_rightuser">
-					<div class="RightUserItem">
-						<img class="usericon" class="img-circle"
-							src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
-
-					</div>
-					<div class="RightUserItem">
-						<a class="username text-dec-none" style="color: black">NULL</a>
-					</div>
-					<div class="RightUserItem" style="float: right">
-						<a class="text-dec-none" href="\login" style="color: rgb(23,60,161)">【退出】</a>
-					</div>
-					<div class="RightUserItem" style="float: right">
-						<a class="text-dec-none" href="\usercenter">用户中心</a>
-					</div>
+		<!--桌面端导航栏-->
+		<div class="collapse navbar-collapse" id="NavbarContent">
+			<!--导航栏内容-->
+			<ul class="navbar-nav me-auto">
+				<li class="nav-item col-md-12 col-lg-3">
+					<a class="nav-link active" onclick="turnPage('/home/banner');SwitchNavLink_active(0)">首页</a>
+				</li>
+				<li class="nav-item  col-md-12 col-lg-3">
+					<a class="nav-link" onclick="turnPage('/home/SmallStore');SwitchNavLink_active(1)">小卖部</a>
+				</li>
+				<li class="nav-item col-md-12 col-lg-3">
+					<a class="nav-link" onclick="turnPage('/home/Busstation');SwitchNavLink_active(2)">停车场</a>
+				</li>
+				<li class="nav-item col-md-12 col-lg-4">
+					<a class="nav-link" onclick="turnPage('/home/Wolserver');SwitchNavLink_active(3)">WOL服务</a>
+				</li>
+				<li class="nav-item col-md-12 col-lg-4">
+					<a class="nav-link" onclick="turnPage('/home/report');SwitchNavLink_active(4)">开发及反馈</a>
+				</li>
+				<li>
+					<hr class="dropdown-divider mb-0">
+				</li>
+			</ul>
+			<div id="colled_rightuser">
+				<div class="RightUserItem">
+					<img class="usericon" class="img-circle" alt=""
+					     src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
 
 				</div>
-
+				<div class="RightUserItem">
+					<a class="username text-dec-none" style="color: black">NULL</a>
+				</div>
+				<div class="RightUserItem" style="float: right">
+					<a class="text-dec-none" href="\login" style="color: rgb(23,60,161)">【退出】</a>
+				</div>
+				<div class="RightUserItem" style="float: right">
+					<a class="text-dec-none" href="\usercenter">用户中心</a>
+				</div>
 
 			</div>
-			<div id="theme_switch">
-				<div id="light_off" class="active" onclick="SetLight()">
-					<img src="{{ url_for('static', filename='Media/img/icon/brightness-alt-high-fill.svg') }}"
-						width="25px">
-				</div>
-				<div id="light_on" class="disactive" onclick="SetLight()">
-					<img src="{{ url_for('static', filename='Media/img/icon/brightness-high.png') }}" width="25px">
-				</div>
-				<script>
-					function SetLight() {
-						var LightOff_Class = 'bg-dark text-light';
-						var LightOn_Class = 'bg-light text-dark';
-						if (sessionStorage.getItem("file_light") == "true") {
-							$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
-							$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
-							$("#light_off").removeClass("active").addClass("disactive");
-							$("#light_on").removeClass("disactive").addClass("active");
-							sessionStorage.setItem("file_light", JSON.stringify(false));//session保存数据到浏览器缓存
-						} else if (sessionStorage.getItem("file_light") == "false") {
-							$("body").removeClass(LightOff_Class).addClass(LightOn_Class)
-							$("#navbar_top_main").removeClass("navbar-dark navbg-dark").addClass("navbar-light navbg-light");
-							$("#light_on").removeClass("active").addClass("disactive");
-							$("#light_off").removeClass("disactive").addClass("active");
-							sessionStorage.setItem("file_light", JSON.stringify(true));//session保存数据到浏览器缓存
-						} else { //定义第一次关灯
-							$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
-							$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
-							$("#light_off").removeClass("active").addClass("disactive");
-							$("#light_on").removeClass("disactive").addClass("active");
-							sessionStorage.setItem("file_light", JSON.stringify(false));//session保存数据到浏览器缓存
-						}
-					}
-				</script>
-			</div>
-			<div class="dropdown" id="wide_rightuser">
-				<div class="dropdown-toggle RightUserItem" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-					aria-expanded="false" style="cursor: pointer">
-					<img class="usericon" class="img-circle"
-						src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
-				</div>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<!--todo 个人中心-->
-					<li><a class="dropdown-item" href="\usercenter">个人中心</a></li>
-					<li><a class="dropdown-item disabled">preserve</a></li>
-					<li class="dropdown-divider"></li>
-					<li><a class="dropdown-item" href="#" onclick="Logout()">退出</a></li>
-				</ul>
-			</div>
+
+
 		</div>
-	</nav>
-
-	<div id="container_main" class="container-fluid" style="padding:0px">
-		<script>
-			function turnPage(url) {
-				$.ajax({
-					type: "get",
-					url: url,
-					async: true,	//使用同步的方式,true为异步方式
-					success: function (html) {
-						$("#container_main").html(html);
+		<div id="theme_switch">
+			<div id="light_off" class="active" onclick="SetLight()">
+				<img src="{{ url_for('static', filename='Media/img/icon/brightness-alt-high-fill.svg') }}"
+				     width="25px">
+			</div>
+			<div id="light_on" class="disactive" onclick="SetLight()">
+				<img src="{{ url_for('static', filename='Media/img/icon/brightness-high.png') }}" width="25px">
+			</div>
+			<script>
+				function SetLight() {
+					let LightOff_Class = 'bg-dark text-light';
+					let LightOn_Class = 'bg-light text-dark';
+					if (sessionStorage.getItem("file_light") == "True") {
+						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
+						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
+						$("#light_off").removeClass("active").addClass("disactive");
+						$("#light_on").removeClass("disactive").addClass("active");
+						sessionStorage.setItem("file_light", JSON.stringify("False"));//session保存数据到浏览器缓存
+					} else if (sessionStorage.getItem("file_light") == "False") {
+						$("body").removeClass(LightOff_Class).addClass(LightOn_Class)
+						$("#navbar_top_main").removeClass("navbar-dark navbg-dark").addClass("navbar-light navbg-light");
+						$("#light_on").removeClass("active").addClass("disactive");
+						$("#light_off").removeClass("disactive").addClass("active");
+						sessionStorage.setItem("file_light", JSON.stringify("True"));//session保存数据到浏览器缓存
+					} else { //定义第一次关灯
+						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
+						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
+						$("#light_off").removeClass("active").addClass("disactive");
+						$("#light_on").removeClass("disactive").addClass("active");
+						sessionStorage.setItem("file_light", JSON.stringify("False"));//session保存数据到浏览器缓存
 					}
-				})
-			}
-		</script>
-
+				}
+			</script>
+		</div>
+		<div class="dropdown" id="wide_rightuser">
+			<div class="dropdown-toggle RightUserItem" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+			     aria-expanded="false" style="cursor: pointer">
+				<img class="usericon" class="img-circle"
+				     src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
+			</div>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<!--todo 个人中心-->
+				<li><a class="dropdown-item" href="\usercenter">个人中心</a></li>
+				<li><a class="dropdown-item disabled">preserve</a></li>
+				<li class="dropdown-divider"></li>
+				<li><a class="dropdown-item" href="#" onclick="Logout()">退出</a></li>
+			</ul>
+		</div>
 	</div>
+</nav>
 
-	<footer class="footer mt-auto container-fluid d-none d-lg-block fixed-bottom">
-		<div class="row">
-			<span class="col d-lg-none d-xxl-block"></span>
-			<span class="col">1</span>
-			<span class="col">2</span>
-			<span class="col">3</span>
-			<span class="col">2</span>
-			<span class="col">1</span>
-			<span class="col d-lg-none d-xxl-block"></span>
-		</div>
-	</footer>
+<div id="container_main" class="container-fluid" style="padding:0px">
+	<script>
+		function turnPage(url) {
+			$.ajax({
+				type: "get",
+				url: url,
+				async: true,	//使用同步的方式,true为异步方式
+				success: function (html) {
+					$("#container_main").html(html);
+				}
+			})
+			$()
+		}
+	</script>
+
+</div>
+
+<footer class="footer mt-auto container-fluid d-none d-lg-block fixed-bottom">
+	<div class="row">
+		<span class="col d-lg-none d-xxl-block"></span>
+		<span class="col">1</span>
+		<span class="col">2</span>
+		<span class="col">3</span>
+		<span class="col">2</span>
+		<span class="col">1</span>
+		<span class="col d-lg-none d-xxl-block"></span>
+	</div>
+</footer>
 </body>
 
 <script>
 	window.onload = function () {
-		var currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
+		let currentuser = JSON.parse(sessionStorage.getItem("file_currentuser"));
 		if (currentuser == null) {
 			alert("请先登录");
 			//window.location.href = "\\";
@@ -171,9 +172,9 @@
 			$("#Username").html(currentuser);
 		}
 
-		if (JSON.parse(sessionStorage.getItem("file_light") == "false")) {
-			var LightOff_Class = 'bg-dark text-light';
-			var LightOn_Class = 'bg-light text-dark';
+		if (JSON.parse(sessionStorage.getItem("file_light") === "False")) {
+			let LightOff_Class = 'bg-dark text-light';
+			let LightOn_Class = 'bg-light text-dark';
 			$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
 			$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
 			$("#light_off").removeClass("active").addClass("disactive");
@@ -183,29 +184,11 @@
 		console.log("done");
 	}
 
-	$(".nav-link:eq(0)").click(function () {
-		$(".nav-link").removeClass("active");
-		$(this).addClass("active");
-	});
+	function SwitchNavLink_active(synth) {
+		$(".nav-link").removeClass("active")
+		$(".nav-link:eq(" + synth + ")").addClass("active")
+	}
 
-	$(".nav-link:eq(1)").click(function () {
-		$(".nav-link").removeClass("active");
-		$(this).addClass("active");
-	});
-
-	$(".nav-link:eq(2)").click(function () {
-		$(".nav-link").removeClass("active");
-		$(this).addClass("active");
-	});
-
-	$(".nav-link:eq(3)").click(function () {
-		$(".nav-link").removeClass("active");
-		$(this).addClass("active");
-	});
-	$(".nav-link:eq(4)").click(function () {
-		$(".nav-link").removeClass("active");
-		$(this).addClass("active");
-	});
 </script>
 
 </html>

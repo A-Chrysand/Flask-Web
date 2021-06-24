@@ -1,60 +1,90 @@
-.bd-placeholder-img
-	font-size: 1.125rem
-	text-anchor: middle
-	-webkit-user-select: none
-	-moz-user-select: none
-	user-select: none
-
-
-@media (min-width: 768px)
-	.bd-placeholder-img-lg
-		font-size: 3.5rem
-
-
-.RightUserItem
-	display: block
-	float: right
-	line-height: 50px
-	font-size: 18px
-	padding: 0 5px
-
-
-.nav-item:hover
-	background-color: wheat
-
-
 body
-	font-size: .875rem
-
-
-.sidebar
-	position: fixed
-	top: 0
-	bottom: 0
-	left: 0
-	z-index: 100
-	padding: 48px 0 0
-	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1)
-	@media (max-width: 767.98px)
-		top: 5rem
-
-	.nav-link
-		font-weight: 500
-		color: #333
-
-		&:active
-			color: #007bff
+	--navbar_Height: 50px
 
 
 .navbar-brand
-	padding-top: .75rem
-	padding-bottom: .75rem
-	font-size: 1rem
-	background-color: rgb(35, 145, 179)
-	box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25)
+	padding: 0px
+	line-height: var(--navbar_Height)
+	
+
+.navbg-light
+	background-color: rgb(250, 250, 245)
+
+.navbg-dark
+	background-color: rgb(30, 30, 30)
+
+.nav-item
+	cursor: pointer
+
+.nav-link
+	padding-left: 0.5rem !important
+	@media (max-width: 992px)
+		text-align: left
+	@media (min-width: 992px)
+		text-align: center
+
+	&.active
+		background-color: rgb(71, 123, 243) !important
+
+#theme_switch, #wide_rightuser
+	margin-right: 10px
+	@media (max-width: 992px)
+		position: absolute
+		z-index: 3
+		top: 8px
+		right: 70px
 
 
-.navbar .navbar-toggler
-	top: .25rem
-	right: 1rem
+#light_off, #light_on
+	cursor: pointer
+	@media (max-width: 992px)
+		margin-top: 0.2rem
 
+	&.disactive
+		display: none
+
+.RightUserItem
+	cursor: pointer
+	display: inline-block
+	line-height: var(--navbar_Height)
+	font-size: 18px
+	padding: 0 5px
+
+#wide_rightuser
+	margin-right: 0px
+	@media(min-width: 992px)
+		display: block
+		float: right
+	@media(max-width: 992px)
+		display: none
+
+	.usericon
+		margin-top: -0.2rem
+
+	.dropdown-toggle::after
+		margin-left: 0px !important
+		filter: Invert (inherit)
+
+	.dropdown-menu
+		max-width: 10rem
+		margin-top: 0px
+		margin-left: calc(-5.7rem + 1px)
+
+
+#colled_rightuser
+	@media(min-width: 992px)
+		display: none
+	@media(max-width: 992px)
+		display: block
+
+footer
+	height: var(--footer_Height)
+	font-size: 0.75em
+	padding: 3px
+	text-align: center
+	background-color: rgba(0, 113, 158, 0.2)
+
+
+#NavbarContent
+	max-width: 80%
+	height: 80vh

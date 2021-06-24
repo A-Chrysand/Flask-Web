@@ -11,15 +11,15 @@
 	<title>Deverb</title>
 	<link rel="stylesheet" href="{{url_for('static',filename='Media/font/fontcreator.css')}}">
 	<link href="{{url_for('static',filename='Src/host/index.css')}}" rel="stylesheet">
-	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="{{url_for('static',filename='CodeBase/aos.js')}}"></script>
+	<link href="{{url_for('static',filename='CodeBase/aos.css')}}" rel="stylesheet">
 </head>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="topnavbar">
 	<div class="container-fluid">
-		<img src="{{url_for('static',filename='Media/img/icon/favicon.png')}}">
-		<span class="navbar-brand" style="font-family: FreestyleScript;letter-spacing: 0.1rem;font-size: 2rem;padding: 0;line-height: 40px">Dreamweaker</span>
+		<img src="{{url_for('static',filename='Media/img/icon/favicon.png')}}" alt="">
+		<span class="navbar-brand" style="font-family: FreestyleScript,serif;letter-spacing: 0.1rem;font-size: 2rem;padding: 0;line-height: 40px">Dreamweaker</span>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
 		        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -41,17 +41,17 @@
 			</form>
 		</div>
 		<script>
-			$(".nav-link:eq(0)").click(function () {
+			$(".nav-link:eq(0)").trigger('click',function () {
 				$(".nav-link").removeClass("active");
 				$(".nav-link:eq(0)").addClass("active");
 			});
 
-			$(".nav-link:eq(1)").click(function () {
+			$(".nav-link:eq(1)").trigger('click',function () {
 				$(".nav-link").removeClass("active");
 				$(".nav-link:eq(1)").addClass("active");
 			});
 
-			$(".nav-link:eq(2)").click(function () {
+			$(".nav-link:eq(2)").trigger('click',function () {
 				$(".nav-link").removeClass("active");
 				$(".nav-link:eq(2)").addClass("active");
 			});
@@ -119,29 +119,29 @@
 	<div class="row">
 		<div class="col-lg-4">
 			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/busstation.jpg')}}" focusable="false">
+			     src="{{url_for('static',filename='Media/img/picture/busstation.jpg')}}" focusable="false" alt="">
 			<h2>Bus station</h2>
 			<p>Communication & Relax</p>
 		</div>
 		<div class="col-lg-4">
 			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/qiumingshan.jpg')}}" focusable="false">
+			     src="{{url_for('static',filename='Media/img/picture/qiumingshan.jpg')}}" focusable="false" alt="">
 			<h2>Déjà Vu</h2>
 			<p>Exciting time shatter</p>
 		</div>
 		<div class="col-lg-4">
 			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/wake.jpg')}}" focusable="false">
+			     src="{{url_for('static',filename='Media/img/picture/wake.jpg')}}" focusable="false" alt="">
 			<h2>Waking</h2>
 			<p>Support LAN wake up</p>
 		</div>
 	</div>
 </div>
 <!------------------------------3个圆圈----------------------------------->
-<div class="wrapperx" style="" scrolling="no" data-aos="fade-down" data-aos-duration="500">
+<div class="wrapperx" data-aos="fade-down" data-aos-duration="500">
 	<div class="wrapper-indicator">
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<polygon points="0,12.5 10,0 20,12.5 10,25" style=""/>
+			<polygon points="0,12.5 10,0 20,12.5 10,25"></polygon>
 		</svg>
 	</div>
 </div>
@@ -163,7 +163,7 @@
 		</div>
 		<div class="col-md-5" data-aos="fade-down">
 			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/server.jpg')}}" focusable="false">
+			     height="500" src="{{url_for('static',filename='Media/img/picture/server.jpg')}}" focusable="false" alt="">
 		</div>
 	</div>
 	<hr class="featurette-divider">
@@ -179,7 +179,7 @@
 		</div>
 		<div class="col-md-5 order-md-1" data-aos="fade-down">
 			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/files.png')}}" focusable="false">
+			     height="500" src="{{url_for('static',filename='Media/img/picture/files.png')}}" focusable="false" alt="">
 		</div>
 	</div>
 	<hr class="featurette-divider">
@@ -190,12 +190,12 @@
 					style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">不</span>可以访问您的文件</p>
 
 			<img class="mb-sm-3" width="100%" style="max-width: 500px;"
-			     src="{{url_for('static',filename='Media/img/picture/error.jpg')}}">
+			     src="{{url_for('static',filename='Media/img/picture/error.jpg')}}" alt="">
 
 		</div>
 		<div class="col-md-5" data-aos="fade-down">
 			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/clock.png')}}" focusable="false">
+			     height="500" src="{{url_for('static',filename='Media/img/picture/clock.png')}}" focusable="false" alt="">
 		</div>
 	</div>
 </div>
@@ -217,19 +217,19 @@
 	}
 
 	$('.wrapper').mousemove(function (e) {
-		var HWR = 0.617;	//设置横幅广告背景高宽比为0.613（1000*613px），至于为什么要设置成0.6xx，我也不知道
-		var EleWidth = ($(".wrapper").css('width'))
+		let HWR = 0.617;	//设置横幅广告背景高宽比为0.613（1000*613px），至于为什么要设置成0.6xx，我也不知道
+		let EleWidth = ($(".wrapper").css('width'))
 		EleWidth = parseInt(EleWidth.slice(0, EleWidth.length - 2));
-		var EleHeight = 512
-		var navHei = $('#topnavbar').css('height') + $('#topnavbar').css('padding-top') * 2
+		let EleHeight = 512
+		let navHei = $('#topnavbar').css('height') + $('#topnavbar').css('padding-top') * 2
 		navHei = parseInt(navHei.slice(0, navHei.length - 2));
-		var x = -(e.pageX), y = -(e.pageY);
+		let x = -(e.pageX), y = -(e.pageY);
 
 		if (EleWidth > EleHeight / HWR) {
-			var offset_y = 100; //设置上下各125px移动边界
+			let offset_y = 100; //设置上下各125px移动边界
 			y += navHei;
-			var max_y = ((EleWidth * HWR) - EleHeight);
-			var YHR = ((EleHeight - 2 * offset_y) / max_y);
+			let max_y = ((EleWidth * HWR) - EleHeight);
+			let YHR = ((EleHeight - 2 * offset_y) / max_y);
 			y = y / YHR;
 			y += (offset_y) / YHR;
 			if (y < -max_y) {
@@ -239,9 +239,9 @@
 			}
 			$(this).css('background-position-y', y + 'px');
 		} else {
-			var offset_x = 100;
-			var max_x = ((EleHeight / HWR) - EleWidth);
-			var XWR = (max_x / (EleWidth - 2 * offset_x));
+			let offset_x = 100;
+			let max_x = ((EleHeight / HWR) - EleWidth);
+			let XWR = (max_x / (EleWidth - 2 * offset_x));
 			x = x * XWR;
 			x += offset_x * XWR;
 			if (x < -max_x) {
@@ -254,15 +254,15 @@
 	});
 
 	$('.wrapperx').mousemove(function (e) {
-		var HWR = 0.421;	                                //设置横幅广告背景高宽比为0.4205（956*402px）
-		var EleWidth = ($(".wrapperx").css('width'))		//获取元素宽度
+		let HWR = 0.421;	                                //设置横幅广告背景高宽比为0.4205（956*402px）
+		let EleWidth = ($(".wrapperx").css('width'))		//获取元素宽度
 		EleWidth = parseInt(EleWidth.slice(0, EleWidth.length - 2));	    //将元素宽度转变为整形用于计算
-		var EleHeight = ($(".wrapperx").css('height'))						//获取元素高度
+		let EleHeight = ($(".wrapperx").css('height'))						//获取元素高度
 		EleHeight = parseInt(EleHeight.slice(0, EleHeight.length - 2));
 		if (EleHeight < EleWidth * HWR) {
-			var offsetx = 0.2 * EleWidth;
-			var x = (e.pageX);
-			var max_y = ((EleWidth * HWR) - EleHeight);
+			let offsetx = 0.2 * EleWidth;
+			let x = (e.pageX);
+			let max_y = ((EleWidth * HWR) - EleHeight);
 
 			x -= offsetx
 			x = x / ((EleWidth - 2 * offsetx) / max_y);

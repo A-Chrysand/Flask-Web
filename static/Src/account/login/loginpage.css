@@ -1,3 +1,12 @@
+@-webkit-keyframes turn {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
 @keyframes turn {
   from {
     -webkit-transform: rotate(0deg);
@@ -6,6 +15,7 @@
     -webkit-transform: rotate(360deg);
   }
 }
+
 body {
   min-width: 300px;
   background: url("../../../Media/img/bg/Jirachi.png") top no-repeat;
@@ -16,6 +26,7 @@ header {
   height: 50px;
   z-index: 1;
 }
+
 header #title {
   background-image: -webkit-radial-gradient(0% 0%, rgba(255, 238, 0, 0.75), rgba(0, 0, 0, 0) 80%);
   max-width: 40rem;
@@ -23,13 +34,15 @@ header #title {
   width: 50%;
   height: 50px;
 }
+
 header #title p {
-  font-family: Dreamweaver;
+  font-family: Dreamweaver, serif;
   font-size: 2.5rem;
   line-height: 3rem;
   color: #ffb222;
   max-width: 16rem;
 }
+
 header #LT_star {
   z-index: -1;
   --cw: 30%;
@@ -37,7 +50,8 @@ header #LT_star {
   position: relative;
   margin-top: calc(var(--cw) / -1.414);
   margin-left: calc(var(--cw) / -2.828);
-  animation: turn 20s linear infinite;
+  -webkit-animation: turn 20s linear infinite;
+          animation: turn 20s linear infinite;
 }
 
 .container-fluid {
@@ -48,6 +62,7 @@ header #LT_star {
   width: 100%;
   text-align: center;
 }
+
 @media (max-width: 992px) {
   #bigtitle_div {
     display: none;
@@ -55,7 +70,7 @@ header #LT_star {
 }
 
 #bigtitle {
-  font-family: Bradley Hand ITC;
+  font-family: Bradley Hand ITC, serif;
   font-weight: 900;
   font-size: 10rem;
   color: #ffaa0d;
@@ -68,11 +83,13 @@ header #LT_star {
   border-radius: 20px;
   padding: 1.5rem 1rem;
 }
+
 @media (max-width: 499px) {
   #account_box {
     margin-top: -50px;
   }
 }
+
 @media (min-width: 500px) and (max-width: 991px) {
   #account_box {
     margin-top: -50px;
@@ -80,13 +97,21 @@ header #LT_star {
     margin-left: calc(50% - 250px);
   }
 }
+
 @media (min-width: 992px) {
   #account_box {
-    margin-top: 50px;
+    margin-top: 5vh;
     max-width: 500px;
     margin-left: calc(50% - 250px);
   }
 }
+
+@media (min-width: 992px) and (max-width: 1280px) {
+  #account_box {
+    margin-top: 2vh;
+  }
+}
+
 #account_box #account_box_top {
   color: tomato;
   position: relative;
@@ -94,6 +119,7 @@ header #LT_star {
   --account_box_top_height: 4rem;
   height: var(--account_box_top_height);
 }
+
 #account_box #account_box_top #text_leftarrow,
 #account_box #account_box_top #text_rightarrow {
   cursor: pointer;
@@ -101,13 +127,16 @@ header #LT_star {
   line-height: var(--account_box_top_height);
   position: absolute;
 }
+
 #account_box #account_box_top #text_leftarrow {
   display: none;
   left: calc(0px + 2rem);
 }
+
 #account_box #account_box_top #text_rightarrow {
   right: calc(0px + 2rem);
 }
+
 #account_box #account_box_top #text_denglu,
 #account_box #account_box_top #text_zhuce {
   cursor: pointer;
@@ -115,10 +144,12 @@ header #LT_star {
   position: absolute;
   line-height: var(--account_box_top_height);
 }
+
 #account_box #account_box_top #text_denglu {
   cursor: default;
   font-size: 3.5rem;
 }
+
 #account_box #account_box_top #text_zhuce {
   right: 0;
   font-size: 1rem;
@@ -155,6 +186,7 @@ input {
   border-style: solid;
   border-radius: 10px;
 }
+
 #tankuang #header-right {
   position: absolute;
   right: 0.5rem;
@@ -162,15 +194,18 @@ input {
   font-size: 1.5rem;
   padding: 0;
 }
+
 #tankuang #bodytext {
   width: 100%;
   margin: 0.5em auto 4em auto;
 }
+
 #tankuang #bottombtn {
   position: absolute;
   bottom: 0.5rem;
   width: calc(100% - 1rem);
 }
+
 #tankuang #bottombtn button {
   width: 6rem;
   margin-left: calc(50% - 3rem);
@@ -181,89 +216,110 @@ input {
   position: absolute;
   bottom: -60px;
   left: -100px;
-  transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
   z-index: -10;
 }
+
 @media (max-width: 768px) {
   #stars .static-star {
     display: none;
   }
 }
+
 #stars .stars {
   z-index: 1;
   position: absolute;
 }
+
 #stars .stars:hover {
-  animation: turn 0.5s linear infinite;
+  -webkit-animation: turn 0.5s linear infinite;
+          animation: turn 0.5s linear infinite;
 }
+
 @media (min-width: 768px) {
   #stars .stars:nth-child(3) {
     width: 40px;
     bottom: 130px;
     left: 140px;
-    transform: rotate(-32deg);
+    -webkit-transform: rotate(-32deg);
+            transform: rotate(-32deg);
   }
 }
+
 @media (max-width: 768px) {
   #stars .stars:nth-child(3) {
     width: 30px;
     bottom: 50px;
     left: 82px;
     z-index: 11;
-    transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
   }
 }
+
 @media (min-width: 768px) {
   #stars .stars:nth-child(4) {
     width: 100px;
     bottom: 65px;
     left: 20px;
-    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
   }
 }
+
 @media (max-width: 768px) {
   #stars .stars:nth-child(4) {
     width: 70px;
     bottom: 65px;
     left: 20px;
-    transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
   }
 }
+
 #stars .stars:nth-child(5) {
   width: 140px;
   bottom: -50px;
   left: 110px;
-  transform: rotate(7deg);
+  -webkit-transform: rotate(7deg);
+          transform: rotate(7deg);
 }
+
 @media (min-width: 768px) {
   #stars .stars:nth-child(6) {
     width: 80px;
     bottom: 50px;
     left: 200px;
-    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+            transform: rotate(-7deg);
   }
 }
+
 @media (max-width: 768px) {
   #stars .stars:nth-child(6) {
     display: none;
   }
 }
+
 #stars .stars:nth-child(7) {
   max-width: 100px;
   min-width: 60px;
 }
+
 @media (min-width: 768px) {
   #stars .stars:nth-child(7) {
     width: 10vw;
     bottom: -20px;
     left: 400px;
-    transform: rotate(120deg);
+    -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
   }
 }
+
 @media (max-width: 768px) {
   #stars .stars:nth-child(7) {
     display: none;
   }
 }
-
 /*# sourceMappingURL=loginpage.css.map */

@@ -30,7 +30,7 @@ function HideWindow(synth) {
 	if (synth == 'x')
 		$('#tankuang').css('display', "none")
 	else if (synth == 'yes') {
-		$("#Register_bottomtab #checkinfoinput").attr('checked','checked')
+		$("#Register_bottomtab #checkinfoinput").attr('checked', 'checked')
 		$('#tankuang').css('display', "none")
 	}
 }
@@ -74,5 +74,12 @@ function changetoregister() {
 		$("#Login_bottomtab").hide(300);
 		$("#Register_bottomtab").show(300);
 		animatecounter--;
+	}
+}
+for (i = 1; i <= 8; i++) {
+	if (i != 8) {
+		document.querySelector("#pj0601id_" + i + "_1").checked = 'checked'
+	} else {
+		document.querySelector("#pj0601id_" + i + "_2").checked = 'checked'
 	}
 }

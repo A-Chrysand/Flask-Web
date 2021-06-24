@@ -21,7 +21,7 @@ header
 		height: 50px
 
 		p
-			font-family: Dreamweaver
+			font-family: Dreamweaver, serif
 			font-size: 2.5rem
 			line-height: 3rem
 			color: rgb(255, 178, 34)
@@ -46,7 +46,7 @@ header
 		display: none
 
 #bigtitle
-	font-family: Bradley Hand ITC
+	font-family: Bradley Hand ITC, serif
 	font-weight: 900
 	font-size: 10rem
 	color: rgb(255, 170, 13)
@@ -66,9 +66,12 @@ header
 		margin-left: calc(50% - 250px)
 
 	@media (min-width: 992px)
-		margin-top: 50px
+		@media(max-width: 1280px)
+			margin-top: 2vh
+		margin-top: 5vh
 		max-width: 500px
 		margin-left: calc(50% - 250px)
+
 
 	#account_box_top
 		color: tomato
@@ -83,9 +86,11 @@ header
 			z-index: 1
 			line-height: var(--account_box_top_height)
 			position: absolute
+
 		#text_leftarrow
 			display: none
 			left: calc(0px + 2rem)
+
 		#text_rightarrow
 			right: calc(0px + 2rem)
 
@@ -128,12 +133,10 @@ input
 	max-width: 400px
 
 	background: rgba(255, 255, 225, 0.9)
-	border-color: rgba(255, 145, 0,0.9)
+	border-color: rgba(255, 145, 0, 0.9)
 	border-width: 4px
 	border-style: solid
 	border-radius: 10px
-
-	#header
 
 
 	#header-right
@@ -146,11 +149,12 @@ input
 	#bodytext
 		width: 100%
 		margin: 0.5em auto 4em auto
-	
+
 	#bottombtn
 		position: absolute
 		bottom: 0.5rem
 		width: calc(100% - 1rem)
+
 		button
 			width: 6rem
 			margin-left: calc(50% - 3rem)

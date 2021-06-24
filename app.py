@@ -2,6 +2,7 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from py_functions.account_check import account_check
+from py_functions.WebDav.webdav_filetree import WebDav_FileTree
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -13,6 +14,7 @@ def index():
 	# todo ↓↓↓此处根据EleWdith * HWR得到高度的算法有BUG
 	return render_template(
 		'index.html',
+		# './account/usercenter.html'
 	)
 
 
@@ -57,6 +59,7 @@ def home():
 		'apps/home.html'
 	)
 
+
 @app.route('/home/banner')
 def banner():
 	return render_template(
@@ -69,6 +72,14 @@ def smallstore():
 	return render_template(
 		'apps/02_SmallStore.html'
 	)
+
+
+@app.route("/filetree_js_post/", methods=['POST'])
+def filetree_js_post():
+	print('\tGettingFileTree>>>' + request.remote_addr + ">>>", end="")
+	Obj_WebDav_FileTree = WebDav_FileTree()
+	filetree_result = Obj_WebDav_FileTree.print_tree()
+	return filetree_result
 
 
 @app.route('/home/Busstation')
@@ -96,3 +107,5 @@ def report():
 ################################################################################
 if __name__ == '__main__':
 	app.run()
+# 如果你想实际开服，请使用下面那条
+# app.run(host='0.0.0.0',port=5000)
