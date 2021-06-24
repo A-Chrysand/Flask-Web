@@ -4,29 +4,31 @@ body
 .bg-dark
 	background-color: rgb(150, 150, 150) !important
 
-
-.navbar-brand
+#navbar_top_main
 	padding: 0px
-	line-height: var(--navbar_Height)
 
-.navbg-light
-	background-color: rgb(250, 250, 245)
+	&.navbg-light
+		background-color: rgb(250, 250, 245)
 
-.navbg-dark
-	background-color: rgb(30, 30, 30)
+	&.navbg-dark
+		background-color: rgb(30, 30, 30)
 
-.nav-item
-	cursor: pointer
+	.navbar-brand
+		padding: 0px
+		line-height: var(--navbar_Height)
 
-.nav-link
-	padding-left: 0.5rem !important
-	@media (max-width: 992px)
-		text-align: left
-	@media (min-width: 992px)
-		text-align: center
+	.nav-item
+		cursor: pointer
 
-	&.active
-		background-color: rgb(71, 123, 243) !important
+	.nav-link
+		padding-left: 0.5rem !important
+		@media (max-width: 992px)
+			text-align: left
+		@media (min-width: 992px)
+			text-align: center
+
+		&.active
+			background-color: rgb(71, 123, 243) !important
 
 #theme_switch, #wide_rightuser
 	margin-right: 10px
@@ -79,9 +81,16 @@ body
 	@media(max-width: 992px)
 		display: block
 
+#container_main
+	margin-top: var(--navbar_Height)
+
 footer
 	height: var(--footer_Height)
 	font-size: 0.75em
-	padding: 3px
+	padding: 0px
 	text-align: center
 	background-color: rgba(0, 113, 158, 0.2)
+
+	div.row
+		margin-top: 2px
+		margin-bottom: 2px

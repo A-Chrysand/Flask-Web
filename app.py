@@ -76,7 +76,7 @@ def smallstore():
 
 @app.route("/filetree_js_post/", methods=['POST'])
 def filetree_js_post():
-	print('\tGettingFileTree>>>' + request.remote_addr + ">>>", end="")
+	print('\tGettingFileTree>>>' + request.remote_addr)
 	Obj_WebDav_FileTree = WebDav_FileTree()
 	filetree_result = Obj_WebDav_FileTree.print_tree()
 	return filetree_result

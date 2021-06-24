@@ -7,19 +7,15 @@
 		<button class="btn btn-outline-success" type="submit">Search</button>
 	</form>
 </div>
-<hr>
 <div class="container">
+	<hr>
 	<div id="filetree"></div>
 </div>
 <div style="height: 2rem;width: 100%"></div>
 <script>
-	filetree_js_post()
-
-	function filetree_js_post() {
-		$.post("/filetree_js_post/", function (data) {
-			$("#filetree").append(data)
-		});
-	}
+	$.post("/filetree_js_post/", function (data) {
+		$("#filetree").append(data)
+	});
 </script>
 <style>
 	#filetree p {

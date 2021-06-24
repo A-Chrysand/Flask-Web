@@ -15,7 +15,7 @@
 </head>
 
 <body class="bg-light text-dark">
-<nav id="navbar_top_main" class="navbar navbar-expand-lg navbar-light navbg-light" style="padding: 0px;">
+<nav id="navbar_top_main" class="navbar navbar-expand-lg navbar-light navbg-light fixed-top" >
 	<div class="container-fluid">
 		<!--导航栏左上角标头-->
 		<span class="navbar-brand">
@@ -91,26 +91,27 @@
 			</div>
 			<script>
 				function SetLight() {
+					console.log(11)
 					let LightOff_Class = 'bg-dark text-light';
 					let LightOn_Class = 'bg-light text-dark';
-					if (sessionStorage.getItem("file_light") == "True") {
+					if (sessionStorage.getItem("file_light") === "\"LightON\"") {
 						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
 						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
 						$("#light_off").removeClass("active").addClass("disactive");
 						$("#light_on").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify("False"));//session保存数据到浏览器缓存
-					} else if (sessionStorage.getItem("file_light") == "False") {
+						sessionStorage.setItem("file_light", JSON.stringify("LightOFF"));//session保存数据到浏览器缓存
+					} else if (sessionStorage.getItem("file_light") === "\"LightOFF\"") {
 						$("body").removeClass(LightOff_Class).addClass(LightOn_Class)
 						$("#navbar_top_main").removeClass("navbar-dark navbg-dark").addClass("navbar-light navbg-light");
 						$("#light_on").removeClass("active").addClass("disactive");
 						$("#light_off").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify("True"));//session保存数据到浏览器缓存
+						sessionStorage.setItem("file_light", JSON.stringify("LightON"));//session保存数据到浏览器缓存
 					} else { //定义第一次关灯
 						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
 						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
 						$("#light_off").removeClass("active").addClass("disactive");
 						$("#light_on").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify("False"));//session保存数据到浏览器缓存
+						sessionStorage.setItem("file_light", JSON.stringify('LightOFF'));//session保存数据到浏览器缓存
 					}
 				}
 			</script>
@@ -172,7 +173,7 @@
 			$("#Username").html(currentuser);
 		}
 
-		if (JSON.parse(sessionStorage.getItem("file_light") === "False")) {
+		if (JSON.parse(sessionStorage.getItem("file_light") === "\"LightOFF\"")) {
 			let LightOff_Class = 'bg-dark text-light';
 			let LightOn_Class = 'bg-light text-dark';
 			$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
@@ -187,6 +188,12 @@
 	function SwitchNavLink_active(synth) {
 		$(".nav-link").removeClass("active")
 		$(".nav-link:eq(" + synth + ")").addClass("active")
+		if (synth == 1 || synth == 2) {
+			$("footer").css("height","0")
+		} else {
+			$("footer").css("height","var(--footer_Height)")
+		}
+
 	}
 
 </script>

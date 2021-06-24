@@ -1,12 +1,61 @@
-
-
-	<div style="width: 100%;height: 300px; background-color: antiquewhite; color: black;">
-		<p id="banner" style="margin:0px; text-align: center;">广告位招租</p>
-		<script>
-			var font_size = document.body.clientWidth / 7;
-			font_size > 200 ? font_size = 200 : font_size = font_size;
-			document.getElementById("banner").style.fontSize = font_size.toString() + 'px';
-		</script>
+<!------------------------------------广告------------------------------------------------------->
+<style>
+	advertisement {
+		display: block;
+		height: 240px;
+		width: 100%;
+	}
+</style>
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+	<!--水平页面指示器-->
+	<ol class="carousel-indicators">
+		<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+		<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+		<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+	</ol>
+	<!--广告内容-->
+	<div class="carousel-inner borderRad-md">
+		<div class="carousel-item active">
+			<advertisement style="background-color:wheat;"></advertisement>
+			<div class="carousel-caption d-none d-md-block">
+				<h1>广告位招租</h1>
+				<p>guanggaoweizhaozu</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<advertisement style="background-color:  rgb(100, 160, 250);"></advertisement>
+			<div class="carousel-caption d-none d-md-block">
+				<h5>empty</h5>
+				<p>2</p>
+			</div>
+		</div>
+		<div class="carousel-item">
+			<advertisement style="background-color:  rgb(100, 200, 250);"></advertisement>
+			<div class="carousel-caption d-none d-md-block">
+				<h5>empty</h5>
+				<p>3</p>
+			</div>
+		</div>
 	</div>
+	<!--"<"">"左右两个按钮-->
+	<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button"
+	   data-bs-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleCaptions" role="button"
+	   data-bs-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</a>
+</div>
 
-
+<!------------------------------------广告------------------------------------------------------->
+<!--todo 先做公告栏再做FTP和论坛-->
+<div class="container" id="div_gonggao">
+123
+</div>
+<!--todo 数据库设计和路由设计-->
+<script>
+	$.post("/gonggao_js_post/", function (data) {
+		$("#div_gonggao").append(data)
+	});
+</script>
