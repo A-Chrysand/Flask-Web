@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +13,6 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='Src/_common/common.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='Src/apps/home.css') }}">
 	<!-------------------------------------------------------------------------------->
-	<script src="{{ url_for('static',filename='Src/account/login/ciphertext.js') }}"></script>
 	<link rel="stylesheet" href="{{ url_for('static', filename='Src/apps/01_banner.css') }}">
 	<script src="{{ url_for('static', filename='Src/apps/01_banner.js') }}"></script>
 
@@ -48,19 +47,23 @@
 			<!--导航栏内容-->
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link active" onclick="turnPage('/home/banner');SwitchNavLink_active(0)">首页</a>
+					<a class="nav-link" href="/home" onclick="SwitchNavLink_active(0)">首页</a>
 				</li>
 				<li class="nav-item  col-md-12 col-lg-3">
-					<a class="nav-link" onclick="turnPage('/home/SmallStore');SwitchNavLink_active(1)">小卖部</a>
+					<a class="nav-link" href="/home"
+					   onclick="turnPage('/home/SmallStore');SwitchNavLink_active(1)">首页</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link" onclick="turnPage('/home/Busstation');SwitchNavLink_active(2)">停车场</a>
+					<a class="nav-link" href="/home"
+					   onclick="turnPage('/home/Busstation');SwitchNavLink_active(2)">首页</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link" onclick="turnPage('/home/Wolserver');SwitchNavLink_active(3)">WOL服务</a>
+					<a class="nav-link" href="/home"
+					   onclick="turnPage('/home/Wolserver');SwitchNavLink_active(3)">首页</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link" onclick="turnPage('/home/report');SwitchNavLink_active(4)">开发及反馈</a>
+					<a class="nav-link" href="/home"
+					   onclick="turnPage('/home/report');SwitchNavLink_active(4)">首页</a>
 				</li>
 				<li>
 					<hr class="dropdown-divider mb-0">
@@ -141,7 +144,10 @@
 </nav>
 
 <div id="container_main" class="container-fluid" style="padding:0px">
+	{% block content %}{% endblock %}
 	<script>
+
+
 		function turnPage(url) {
 			$.ajax({
 				type: "get",
@@ -172,6 +178,7 @@
 
 <script>
 	window.onload = function () {
+		{% block scripts %}{% endblock %}
 		let currentuser = sessionStorage.getItem("file_currentuser")
 		if (currentuser == null) {
 			alert("请先登录");
@@ -179,8 +186,6 @@
 		} else {
 			$(".htmltext_username").html(currentuser + "☆");
 		}
-		turnPage('/home/banner')
-
 		if (JSON.parse(sessionStorage.getItem("file_light") === "\"LightOFF\"")) {
 			let LightOff_Class = 'bg-dark text-light';
 			let LightOn_Class = 'bg-light text-dark';
@@ -189,7 +194,6 @@
 			$("#light_off").removeClass("active").addClass("disactive");
 			$("#light_on").removeClass("disactive").addClass("active");
 		}
-		console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★                                 ↖）            ★\n★                          <=======█≪             ★\n★                  ========▅▆▇█████▇            ★\n★                  ======▇█████▇█▇██              ★\n★      ▃▅▆▇██████████████▇15-95▇█████████       ★\n★    ◥███████████████████████████████████████       ★    /*这一行故意加的*/\n★      ◥⊙█████████████████████████████████⊙◤    ★\n★        ◥⊙▆▆⊙▆▆▆⊙▆▆⊙▆▆⊙▆▆⊙◤       ★\n★      95高炮保佑       永无BUG       永不宕机     ★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★")
 	}
 
 	function SwitchNavLink_active(synth) {

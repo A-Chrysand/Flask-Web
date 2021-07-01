@@ -3,7 +3,7 @@ function Logout() {
 	window.location.href = "../login"
 }
 
-$("#colled_rightuser").click(function () {
+$("#colled_rightuser").trigger("click", function () {
 	console.log('e')
 	window.location.href = "/usercenter"
 	return false

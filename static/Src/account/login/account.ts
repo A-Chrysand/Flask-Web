@@ -6,16 +6,16 @@ function logincheck() {
 	let login_sendout: string = Generate.Cipher_Num(login_mingwen);
 	//ORG $.post("/js_post/"+ip, data_to_backend, function(data){alert("success "+data)} );
 	$.post("/login_js_post/" + login_sendout, function (data) {
-		if (data == 'success') {
-			saveNopennewpage(username);
-			window.location.href = "/home";
-		} else if (data == 'usernotfound') {
-			alert("用户名不存在");
-		} else if (data == 'passwderr') {
-			alert("密码错误");
+			if (data == 'success') {
+				saveNopennewpage(username);
+				window.location.href = "/home";
+			} else if (data == 'usernotfound') {
+				alert("用户名不存在");
+			} else if (data == 'passwderr') {
+				alert("密码错误");
+			}
+			console.log("EE");
 		}
-		console.log("EE");
-	}
 	)
 }
 
@@ -46,8 +46,7 @@ function register() {
 	} else if (!$('#checkinfoinput').is(':checked')) {
 		alert("请先阅读注意事项")
 		return
-	}
-	else {
+	} else {
 		register_js_post(read_username, read_passwd, read_email);
 	}
 }
@@ -78,5 +77,5 @@ function register_js_post(send_username, send_passwd, send_email) {
 
 
 function saveNopennewpage(save_username) {//保存当前用户并跳转到主页
-	sessionStorage.setItem("file_currentuser", JSON.stringify(save_username))   //session保存数据到浏览器缓存
+	sessionStorage.setItem("file_currentuser", save_username)   //session保存数据到浏览器缓存
 }

@@ -4,6 +4,7 @@ body
 .bg-dark
 	background-color: rgb(150, 150, 150) !important
 
+
 #navbar_top_main
 	padding: 0px
 
@@ -62,18 +63,27 @@ body
 	@media(max-width: 992px)
 		display: none
 
+
 	.usericon
+		transition: all 0.25s
+		width: 32px
 		margin-top: -0.2rem
+		z-index: 10
+
+		&:hover
+			transform: scale(1.35)
 
 	.dropdown-toggle::after
 		margin-left: 0px !important
-		filter: Invert (inherit)
+		filter: Invert(inherit)
 
 	.dropdown-menu
 		max-width: 10rem
 		margin-top: 0px
 		margin-left: calc(-5.7rem + 1px)
 
+	ul, li
+		z-index: 1
 
 #colled_rightuser
 	@media(min-width: 992px)
@@ -90,7 +100,14 @@ footer
 	padding: 0px
 	text-align: center
 	background-color: rgba(0, 113, 158, 0.2)
+	@media(min-width: 992px)
+		display: block
+	@media(max-width: 992px)
+		display: none
 
 	div.row
 		margin-top: 2px
 		margin-bottom: 2px
+
+.htmltext_username
+	user-select: none

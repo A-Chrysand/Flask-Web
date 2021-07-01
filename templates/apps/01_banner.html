@@ -1,11 +1,4 @@
 <!------------------------------------广告------------------------------------------------------->
-<style>
-	advertisement {
-		display: block;
-		height: 240px;
-		width: 100%;
-	}
-</style>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 	<!--水平页面指示器-->
 	<ol class="carousel-indicators">
@@ -49,13 +42,23 @@
 </div>
 
 <!------------------------------------广告------------------------------------------------------->
-<!--todo 先做公告栏再做FTP和论坛-->
+<hr>
 <div class="container" id="div_gonggao">
-123
+	<table id="announcement_table">
+		<thead>
+			<td class="announcement_ID">编号</td>
+			<td class="announcement_title">公告标题</td>
+			<td class="announcement_author">作者</td>
+			<td class="announcement_time">时间</td>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
 </div>
-<!--todo 数据库设计和路由设计-->
+
 <script>
-	$.post("/gonggao_js_post/", function (data) {
-		$("#div_gonggao").append(data)
+	$.post("/announcementlist_js_post/", function (data) {
+		$("#announcement_table tbody").append(data)
 	});
 </script>

@@ -1,0 +1,89 @@
+//////////////////////////////////////////////////
+//      选择器请详细指定到每一个父级元素和子元素      //
+//                     通用CSS                   //
+//////////////////////////////////////////////////
+#carouselExampleCaptions advertisement
+	display: block
+	height: 240px
+	width: 100%
+
+#div_gonggao
+	#announcement_table
+		width: 100%
+		border: rgba(0, 128, 160, 0.5) 1px solid
+
+		tr
+			display: flex
+
+
+		thead
+			height: 2rem
+			font-size: 1.5rem
+
+			td
+				padding: 1px 0
+				border-bottom: rgba(0, 128, 160, 0.5) 1px solid
+
+				&:not(td:first-child)
+					border-left: rgba(0, 128, 160, 0.5) 1px dotted
+
+		tbody
+			td
+				padding: 0.4rem 0
+				font-size: 1rem
+
+				&:not(tr:last-child td)
+					border-bottom: rgba(0, 128, 160, 0.2) 1px solid
+
+				&:not(td:first-child)
+					border-left: rgba(0, 128, 160, 0.2) 1px dotted
+
+		.announcement_ID
+			width: 5rem
+			@media (max-width: 576px)
+				display: none
+			@media (min-width: 576px)
+				display: block
+
+		.announcement_title
+			flex: 1
+			text-align: left
+			@media (max-width: 992px)
+				padding-left: 0.5rem
+				padding-right: 0.5rem
+			@media (min-width: 992px)
+				padding-left: 1rem
+				padding-right: 1rem
+			a
+				cursor: pointer
+				text-decoration: none
+
+		.announcement_author
+			width: 6rem
+
+		.announcement_time
+			width: 7rem
+
+		.announcement_ID, thead .announcement_title, .announcement_author, .announcement_time
+			text-align: center
+
+//####################
+#div_announcement_page
+	.h1_ann_title
+		text-align: center
+	.div_ann_info
+		display: flex
+		width: 60%
+		margin-left: 20%
+	.p_ann_text
+		text-indent: 2em
+	.p_ann_end
+		margin: 0
+		text-align: center
+
+
+//////////////////////////////////////////////////
+
+
+
+

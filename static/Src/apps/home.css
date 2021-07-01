@@ -1,0 +1,151 @@
+body {
+  --navbar_Height: 50px;
+}
+
+.bg-dark {
+  background-color: #969696 !important;
+}
+
+#navbar_top_main {
+  padding: 0px;
+}
+#navbar_top_main.navbg-light {
+  background-color: #fafaf5;
+}
+#navbar_top_main.navbg-dark {
+  background-color: #1e1e1e;
+}
+#navbar_top_main .navbar-brand {
+  padding: 0px;
+  line-height: var(--navbar_Height);
+}
+#navbar_top_main .nav-item {
+  cursor: pointer;
+}
+#navbar_top_main .nav-link {
+  padding-left: 0.5rem !important;
+}
+@media (max-width: 992px) {
+  #navbar_top_main .nav-link {
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  #navbar_top_main .nav-link {
+    text-align: center;
+  }
+}
+#navbar_top_main .nav-link.active {
+  background-color: #477bf3 !important;
+}
+
+#theme_switch, #wide_rightuser {
+  margin-right: 10px;
+}
+@media (max-width: 992px) {
+  #theme_switch, #wide_rightuser {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    right: 70px;
+  }
+}
+
+#light_off, #light_on {
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  #light_off, #light_on {
+    margin-top: 0.2rem;
+  }
+}
+#light_off.disactive, #light_on.disactive {
+  display: none;
+}
+
+.RightUserItem {
+  cursor: pointer;
+  display: inline-block;
+  line-height: var(--navbar_Height);
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+#wide_rightuser {
+  margin-right: 0px;
+}
+@media (min-width: 992px) {
+  #wide_rightuser {
+    display: block;
+    float: right;
+  }
+}
+@media (max-width: 992px) {
+  #wide_rightuser {
+    display: none;
+  }
+}
+#wide_rightuser .usericon {
+  transition: all 0.25s;
+  width: 32px;
+  margin-top: -0.2rem;
+  z-index: 10;
+}
+#wide_rightuser .usericon:hover {
+  transform: scale(1.35);
+}
+#wide_rightuser .dropdown-toggle::after {
+  margin-left: 0px !important;
+  filter: Invert(inherit);
+}
+#wide_rightuser .dropdown-menu {
+  max-width: 10rem;
+  margin-top: 0px;
+  margin-left: calc(-5.7rem + 1px);
+}
+#wide_rightuser ul, #wide_rightuser li {
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  #colled_rightuser {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  #colled_rightuser {
+    display: block;
+  }
+}
+
+#container_main {
+  margin-top: var(--navbar_Height);
+}
+
+footer {
+  height: var(--footer_Height);
+  font-size: 0.75em;
+  padding: 0px;
+  text-align: center;
+  background-color: rgba(0, 113, 158, 0.2);
+}
+@media (min-width: 992px) {
+  footer {
+    display: block;
+  }
+}
+@media (max-width: 992px) {
+  footer {
+    display: none;
+  }
+}
+footer div.row {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.htmltext_username {
+  user-select: none;
+}
+
+/*# sourceMappingURL=home.css.map */

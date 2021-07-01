@@ -1,5 +1,5 @@
 var Generate = {
-    jingdu: 2,
+    Jingdu: 2,
     PreChip: function (mingwen) {
         var pi = this.CreatePi();
         var time = new Date();
@@ -18,8 +18,8 @@ var Generate = {
         for (var i = 0; i < mingwen.length; i++) {
             //asciicode[i] = parseInt(mingwen[i].charCodeAt()) + " ";
             temp = parseFloat((((parseInt(mingwen[i].charCodeAt()) + pi[i]) + Math.pow(day, 2) - minute + 233) * 2.236).toString());
-            miwen.push(temp.toFixed(this.jingdu));
-            miwenstr += ((miwen[i]).toString().slice(0, 3) + (miwen[i].toString().slice(4, 4 + this.jingdu)));
+            miwen.push(temp.toFixed(this.Jingdu));
+            miwenstr += ((miwen[i]).toString().slice(0, 3) + (miwen[i].toString().slice(4, 4 + this.Jingdu)));
         }
         //console.log("明文:           " + mingwen);
         //console.log("Ascii:          " + asciicode);
@@ -59,9 +59,9 @@ var Generate = {
         var sendout = [];
         var sendoutstr = "";
         for (var i = 0; i < miwen.length; i++) {
-            sendout.push((parseFloat(miwen[i]) + pi[i]).toFixed(this.jingdu).toString());
+            sendout.push((parseFloat(miwen[i]) + pi[i]).toFixed(this.Jingdu).toString());
             //console.log(sendout[i]);
-            sendoutstr += ((sendout[i]).toString().slice(0, 3) + (sendout[i].toString().slice(4, 4 + this.jingdu)));
+            sendoutstr += ((sendout[i]).toString().slice(0, 3) + (sendout[i].toString().slice(4, 4 + this.Jingdu)));
         }
         //$("#text3").html(sendoutstr);
         return sendoutstr;

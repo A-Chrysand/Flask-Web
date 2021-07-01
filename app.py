@@ -1,8 +1,14 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
+from flask import url_for
+from flask import make_response, session, escape
+
 from py_functions.account_check import account_check
 from py_functions.WebDav.webdav_filetree import WebDav_FileTree
+from py_functions.Announcement.announcement_list import Announcement
+from py_functions.Announcement.urldecode import UrlDecode
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -55,11 +61,10 @@ def usercenter():
 ########################################HOME INDEX########################################
 @app.route('/home')
 def home():
-	return render_template(
-		'apps/home.html'
-	)
+	return render_template('/apps/home.html')
 
 
+####################
 @app.route('/home/banner')
 def banner():
 	return render_template(
@@ -67,10 +72,43 @@ def banner():
 	)
 
 
+@app.route("/announcementlist_js_post/", methods=['POST'])
+def announcement_js_post():
+	obj_announcement = Announcement()
+	announcementResult = obj_announcement.printAnnouncementHTML()
+	return announcementResult
+
+
+@app.route("/home/announcement/<string>", methods=['POST', 'GET'])
+def dfdfdf(string):
+	result = UrlDecode.Decode(string)
+	obj_announcement = Announcement()
+	announcementResult = obj_announcement.getAnnouncement(result[0])
+	return render_template(
+		'/apps/11_announcement.html',
+		username=result[1],
+		ID=announcementResult[0][0],
+		title=announcementResult[0][3],
+		time=announcementResult[0][1],
+		author=announcementResult[0][2],
+		text=announcementResult[0][4]
+	)
+
+
+####################
 @app.route('/home/SmallStore')
 def smallstore():
 	return render_template(
 		'apps/02_SmallStore.html'
+	)
+
+
+####################
+@app.route('/home/Busstation')
+def Busstation():
+	return render_template(
+		'apps/03_Busstation.html'
+
 	)
 
 
@@ -82,13 +120,7 @@ def filetree_js_post():
 	return filetree_result
 
 
-@app.route('/home/Busstation')
-def busstation():
-	return render_template(
-		'apps/03_Busstation.html'
-
-	)
-
+####################
 
 @app.route('/home/Wolserver')
 def wolserver():
