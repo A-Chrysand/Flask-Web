@@ -1,16 +1,19 @@
 body {
   margin: 0;
 }
+
 @media (max-width: 576px) {
   body .offset-left-nav {
     margin-left: 50px;
   }
 }
+
 @media (min-width: 576px) and (max-width: 992px) {
   body .offset-left-container, body .offset-left-nav {
     margin-left: 50px;
   }
 }
+
 @media screen and (min-width: 992px) {
   body .offset-left-container, body .offset-left-nav {
     margin-left: 250px;
@@ -20,21 +23,26 @@ body {
 .control-show {
   width: 250px;
 }
+
 .control-show .d50 {
   display: none;
 }
+
 .control-show .alink {
   display: block;
 }
+
 @media (max-width: 992px) {
   .control-show {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
   }
 }
 
 .control-coll .alink {
   display: none;
 }
+
 @media (max-width: 576px) {
   .control-coll {
     width: 0;
@@ -43,11 +51,13 @@ body {
     display: none;
   }
 }
+
 @media (min-width: 576px) and (max-width: 992px) {
   .control-coll {
     width: 50px;
   }
 }
+
 .control-coll .d50 {
   display: block;
 }
@@ -64,14 +74,17 @@ body {
     display: block;
   }
 }
+
 .side-bar {
   position: fixed;
   left: 0;
   bottom: 0;
   height: 100vh;
+  -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   background-color: #a9e5fd;
 }
+
 .side-bar:after {
   background-color: #0059ff;
   content: "";
@@ -82,9 +95,11 @@ body {
   height: 50px;
   z-index: -1;
 }
+
 .side-bar ul {
   position: absolute;
-  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
   top: 50px;
   left: 50%;
   width: 100%;
@@ -92,41 +107,52 @@ body {
   padding-left: 0;
   overflow: hidden;
 }
+
 .side-bar ul li {
   list-style: none;
   font-size: 22px;
   padding: 10px;
+  -webkit-transition: 0.25s;
   transition: 0.25s;
 }
+
 .side-bar ul li a {
   color: white;
   text-decoration: none;
   white-space: nowrap;
+  -webkit-transition: 0.25s;
   transition: 0.25s;
 }
+
 .side-bar ul li a:hover {
   color: rgba(255, 0, 100, 0.6);
 }
+
 .side-bar .toggle-hamburg-icon {
   background-color: #ff7e0017;
 }
+
 @media (max-width: 992px) {
   .side-bar .toggle-hamburg-icon {
     display: inline-block;
   }
 }
+
 @media (min-width: 992px) {
   .side-bar .toggle-hamburg-icon {
     display: none;
   }
 }
+
 .side-bar .toggle-hamburg-icon .hamburg {
   color: black;
   padding: 8px 12px;
   font-size: 20px;
   cursor: pointer;
+  -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
+
 .side-bar .toggle-hamburg-icon .close-side {
   display: none;
   color: black;
@@ -134,41 +160,60 @@ body {
   padding: 8px 12px;
   font-size: 20px;
   cursor: pointer;
+  -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
 
 header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
   height: 50px;
   background-color: wheat;
 }
+
 header .nav-brand-icon, header .nav-brand-text {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 header .offset-left-nav {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
+
 header #div_wide_rightuser {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 1rem;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 @media (min-width: 992px) {
   header #div_wide_rightuser {
     float: right;
   }
 }
+
 @media (max-width: 992px) {
   header #div_wide_rightuser {
     display: none;
   }
 }
+
 header #div_wide_rightuser .usericon, header #div_wide_rightuser .htmltext_username {
   cursor: default;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
+
 header #div_wide_rightuser .htmltext_username {
   font-size: 1.25rem;
   padding-left: 1rem;
@@ -178,12 +223,13 @@ header #div_wide_rightuser .htmltext_username {
 .side-bar ul li:hover {
   background-color: rgba(255, 133, 32, 0.5);
 }
+
 .side-bar ul li.active {
   background-color: rgba(0, 89, 255, 0.125);
 }
+
 .side-bar ul li.active a {
   color: #0081fa;
   font-weight: bold;
 }
-
 /*# sourceMappingURL=usercenter.css.map */

@@ -9,32 +9,40 @@ body {
 #navbar_top_main {
   padding: 0px;
 }
+
 #navbar_top_main.navbg-light {
   background-color: #fafaf5;
 }
+
 #navbar_top_main.navbg-dark {
   background-color: #1e1e1e;
 }
+
 #navbar_top_main .navbar-brand {
   padding: 0px;
   line-height: var(--navbar_Height);
 }
+
 #navbar_top_main .nav-item {
   cursor: pointer;
 }
+
 #navbar_top_main .nav-link {
   padding-left: 0.5rem !important;
 }
+
 @media (max-width: 992px) {
   #navbar_top_main .nav-link {
     text-align: left;
   }
 }
+
 @media (min-width: 992px) {
   #navbar_top_main .nav-link {
     text-align: center;
   }
 }
+
 #navbar_top_main .nav-link.active {
   background-color: #477bf3 !important;
 }
@@ -42,6 +50,7 @@ body {
 #theme_switch, #div_wide_rightuser {
   margin-right: 10px;
 }
+
 @media (max-width: 992px) {
   #theme_switch, #div_wide_rightuser {
     position: absolute;
@@ -54,11 +63,13 @@ body {
 #light_off, #light_on {
   cursor: pointer;
 }
+
 @media (max-width: 992px) {
   #light_off, #light_on {
     margin-top: 0.2rem;
   }
 }
+
 #light_off.disactive, #light_on.disactive {
   display: none;
 }
@@ -74,35 +85,45 @@ body {
 #div_wide_rightuser {
   margin-right: 0px;
 }
+
 @media (min-width: 992px) {
   #div_wide_rightuser {
     display: block;
     float: right;
   }
 }
+
 @media (max-width: 992px) {
   #div_wide_rightuser {
     display: none;
   }
 }
+
 #div_wide_rightuser .usericon {
+  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   width: 32px;
   margin-top: -0.2rem;
   z-index: 10;
 }
+
 #div_wide_rightuser .usericon:hover {
-  transform: scale(1.35);
+  -webkit-transform: scale(1.35);
+          transform: scale(1.35);
 }
+
 #div_wide_rightuser .dropdown-toggle::after {
   margin-left: 0px !important;
-  filter: Invert(inherit);
+  -webkit-filter: Invert(inherit);
+          filter: Invert(inherit);
 }
+
 #div_wide_rightuser .dropdown-menu {
   max-width: 10rem;
   margin-top: 0px;
   margin-left: calc(-5.7rem + 1px);
 }
+
 #div_wide_rightuser ul, #div_wide_rightuser li {
   z-index: 1;
 }
@@ -112,6 +133,7 @@ body {
     display: none;
   }
 }
+
 @media (max-width: 992px) {
   #colled_rightuser {
     display: block;
@@ -129,16 +151,19 @@ footer {
   text-align: center;
   background-color: rgba(0, 113, 158, 0.2);
 }
+
 @media (min-width: 992px) {
   footer {
     display: block;
   }
 }
+
 @media (max-width: 992px) {
   footer {
     display: none;
   }
 }
+
 footer div.row {
   margin-top: 2px;
   margin-bottom: 2px;
@@ -148,7 +173,9 @@ footer div.row {
   cursor: default;
   padding-left: 1rem;
   text-decoration: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
 /*# sourceMappingURL=home.css.map */
