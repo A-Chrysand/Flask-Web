@@ -8,7 +8,7 @@ body {
 }
 
 .carousel-inner .carousel-item:nth-child(1) {
-  background: url("../../Media/img/bg/Jirachi.png") no-repeat 60% 20%;
+  background: url("../../Media/img/bg/100.jpg") no-repeat 60% 20%;
 }
 
 .carousel-inner .carousel-item:nth-child(1) .carousel-caption {
@@ -43,15 +43,6 @@ body {
   }
 }
 
-.wrapperx {
-  width: 100%;
-  max-width: 100%;
-  height: var(--thisHeight);
-  margin-top: 3rem;
-  background: url("../../Media/img/bg/midbanner.jpg") no-repeat center 23%;
-  background-size: 100vw auto !important;
-}
-
 @media (max-width: 760px) {
   .wrapperx {
     --thisHeight: calc(100vw * 0.421);
@@ -61,6 +52,12 @@ body {
 @media (min-width: 760px) {
   .wrapperx {
     --thisHeight: 20rem;
+    width: 100%;
+    max-width: 100%;
+    height: var(--thisHeight);
+    margin-top: 3rem;
+    background: url("../../Media/img/bg/midbanner.jpg") no-repeat center 23%;
+    background-size: 100vw auto !important;
   }
 }
 

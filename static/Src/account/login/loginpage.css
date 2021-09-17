@@ -82,6 +82,7 @@ header #LT_star {
   border: wheat 2px solid;
   border-radius: 20px;
   padding: 1.5rem 1rem;
+  max-width: 500px;
 }
 
 @media (max-width: 499px) {
@@ -93,15 +94,12 @@ header #LT_star {
 @media (min-width: 500px) and (max-width: 991px) {
   #account_box {
     margin-top: -50px;
-    max-width: 500px;
     margin-left: calc(50% - 250px);
   }
 }
 
 @media (min-width: 992px) {
   #account_box {
-    margin-top: 5vh;
-    max-width: 500px;
     margin-left: calc(50% - 250px);
   }
 }
@@ -109,6 +107,7 @@ header #LT_star {
 @media (min-width: 992px) and (max-width: 1280px) {
   #account_box {
     margin-top: 2vh;
+    margin-top: 5vh;
   }
 }
 
@@ -317,7 +316,7 @@ input {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #stars .stars:nth-child(7) {
     display: none;
   }

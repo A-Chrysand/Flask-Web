@@ -57,21 +57,20 @@ header
 	border: wheat 2px solid
 	border-radius: 20px
 	padding: 1.5rem 1rem
+	max-width: 500px
 	@media (max-width: 499px)
 		margin-top: -50px
 
 	@media (min-width: 500px) and (max-width: 991px)
 		margin-top: -50px
-		max-width: 500px
+
 		margin-left: calc(50% - 250px)
 
 	@media (min-width: 992px)
+		margin-left: calc(50% - 250px)
 		@media(max-width: 1280px)
 			margin-top: 2vh
-		margin-top: 5vh
-		max-width: 500px
-		margin-left: calc(50% - 250px)
-
+			margin-top: 5vh
 
 	#account_box_top
 		color: tomato
@@ -137,7 +136,6 @@ input
 	border-width: 4px
 	border-style: solid
 	border-radius: 10px
-
 
 	#header-right
 		position: absolute
@@ -227,5 +225,5 @@ input
 			bottom: -20px
 			left: 400px
 			transform: rotate(120deg)
-		@media(max-width: 768px)
+		@media(max-width: 1024px)
 			display: none
