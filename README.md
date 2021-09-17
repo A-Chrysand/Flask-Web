@@ -2,3 +2,5 @@
 
 ## Intro
 This is a static page, more infomation see main branch
+view env
+https://a-chrysand.github.io/Python-Flask/templates/index.html
