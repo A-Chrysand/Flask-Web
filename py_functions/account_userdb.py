@@ -1,9 +1,10 @@
 import sqlite3
 import os
+import random
 
 
 class AccountDB:
-	__dbname = 'accountdb.db'       #设置数据库名称
+	__dbname = 'accountdb.db'  # 设置数据库名称
 	dbpath = os.path.join((os.path.dirname(os.path.realpath(__file__)))[0:-12], 'db',
 	                      __dbname)  # 获取本py文件的绝对路径，再删掉路径返回上一级
 
@@ -61,9 +62,11 @@ class AccountDB:
 		db_tuple_num = str((acc_db_cur.fetchall()[0])[0] + 1).zfill(4)  # 把查找结果前面补0后赋值给db_result
 		print("\033[0;37m|ID|\033[0m" + db_tuple_num + "\033[0;37m|Name|\033[0;m" + write_str_object[
 			0] + "\033[0;37m|Email|\033[0m" + write_str_object[2], end=">>>")
+		Usynthnum = random.randrange(1000, 9999, 1)
 		acc_db_cur.execute(
-			'INSERT INTO user1(UID,Uright,Uname,Upasswd,Umail) VALUES("' + db_tuple_num + '",1,"' + write_str_object[
-				0] + '","' + write_str_object[1] + '","' + write_str_object[2] + '")')
+			'INSERT INTO user1(UID,Uright,Uname,Upasswd,Umail,Usynthtext) VALUES("' + db_tuple_num + '",1,"' +
+			write_str_object[
+				0] + '","' + write_str_object[1] + '","' + write_str_object[2] + '","' + str(Usynthnum) + '")')
 		accountdb.commit()
 		temp = self.register_search([write_str_object[0], write_str_object[2]])
 		acc_db_cur.close()

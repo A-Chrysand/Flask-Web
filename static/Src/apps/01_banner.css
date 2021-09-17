@@ -8,69 +8,90 @@
   width: 100%;
   border: rgba(0, 128, 160, 0.5) 1px solid;
 }
+
 #div_gonggao #announcement_table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 #div_gonggao #announcement_table thead {
   height: 2rem;
   font-size: 1.5rem;
 }
+
 #div_gonggao #announcement_table thead td {
   padding: 1px 0;
   border-bottom: rgba(0, 128, 160, 0.5) 1px solid;
 }
+
 #div_gonggao #announcement_table thead td:not(td:first-child) {
   border-left: rgba(0, 128, 160, 0.5) 1px dotted;
 }
+
 #div_gonggao #announcement_table tbody td {
   padding: 0.4rem 0;
   font-size: 1rem;
 }
-#div_gonggao #announcement_table tbody td:not(tr:last-child td) {
+
+#div_gonggao #announcement_table tbody td {
   border-bottom: rgba(0, 128, 160, 0.2) 1px solid;
 }
+
 #div_gonggao #announcement_table tbody td:not(td:first-child) {
   border-left: rgba(0, 128, 160, 0.2) 1px dotted;
 }
+
 #div_gonggao #announcement_table .announcement_ID {
   width: 5rem;
 }
+
 @media (max-width: 576px) {
   #div_gonggao #announcement_table .announcement_ID {
     display: none;
   }
 }
+
 @media (min-width: 576px) {
   #div_gonggao #announcement_table .announcement_ID {
     display: block;
   }
 }
+
 #div_gonggao #announcement_table .announcement_title {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   text-align: left;
 }
+
 @media (max-width: 992px) {
   #div_gonggao #announcement_table .announcement_title {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
 }
+
 @media (min-width: 992px) {
   #div_gonggao #announcement_table .announcement_title {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
+
 #div_gonggao #announcement_table .announcement_title a {
   cursor: pointer;
   text-decoration: none;
 }
+
 #div_gonggao #announcement_table .announcement_author {
   width: 6rem;
 }
+
 #div_gonggao #announcement_table .announcement_time {
   width: 7rem;
 }
+
 #div_gonggao #announcement_table .announcement_ID, #div_gonggao #announcement_table thead .announcement_title, #div_gonggao #announcement_table .announcement_author, #div_gonggao #announcement_table .announcement_time {
   text-align: center;
 }
@@ -78,17 +99,21 @@
 #div_announcement_page .h1_ann_title {
   text-align: center;
 }
+
 #div_announcement_page .div_ann_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 60%;
   margin-left: 20%;
 }
+
 #div_announcement_page .p_ann_text {
   text-indent: 2em;
 }
+
 #div_announcement_page .p_ann_end {
   margin: 0;
   text-align: center;
 }
-
 /*# sourceMappingURL=01_banner.css.map */

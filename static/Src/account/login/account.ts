@@ -1,3 +1,5 @@
+let homelocation='/home?i=0'
+
 function logincheck() {
 	let username: string | number | string[] = $("#lg_input_text").val();
 	let userpasswd: string | number | string[] = $("#lg_input_psw").val();
@@ -8,7 +10,7 @@ function logincheck() {
 	$.post("/login_js_post/" + login_sendout, function (data) {
 			if (data == 'success') {
 				saveNopennewpage(username);
-				window.location.href = "/home";
+				window.location.href = homelocation
 			} else if (data == 'usernotfound') {
 				alert("用户名不存在");
 			} else if (data == 'passwderr') {
@@ -60,7 +62,7 @@ function register_js_post(send_username, send_passwd, send_email) {
 		if (data == 'registersuccess') {
 			saveNopennewpage(send_username);
 			alert("注册成功");
-			window.location.href = "/home";
+			window.location.href = homelocation
 		} else if (data == 'registerfail') {
 			alert("注册失败");
 		} else if (data == 'registererror') {

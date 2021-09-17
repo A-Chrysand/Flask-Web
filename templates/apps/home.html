@@ -48,19 +48,19 @@
 			<!--导航栏内容-->
 			<ul class="navbar-nav me-auto">
 				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link active" onclick="turnPage('/home/banner');SwitchNavLink_active(0)">首页</a>
+					<a class="nav-link active" onclick="turnPage('/home/banner',0)">首页</a>
 				</li>
 				<li class="nav-item  col-md-12 col-lg-3">
-					<a class="nav-link" onclick="turnPage('/home/SmallStore');SwitchNavLink_active(1)">小卖部</a>
+					<a class="nav-link" onclick="turnPage('/home/SmallStore',1)">小卖部</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link" onclick="turnPage('/home/Busstation');SwitchNavLink_active(2)">停车场</a>
+					<a class="nav-link" onclick="turnPage('/home/Busstation',2)">停车场</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link" onclick="turnPage('/home/Wolserver');SwitchNavLink_active(3)">WOL服务</a>
+					<a class="nav-link" onclick="turnPage('/home/Wolserver',3)">WOL服务</a>
 				</li>
 				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link" onclick="turnPage('/home/report');SwitchNavLink_active(4)">开发及反馈</a>
+					<a class="nav-link" onclick="turnPage('/home/report',4)">开发及反馈</a>
 				</li>
 				<li>
 					<hr class="dropdown-divider mb-0">
@@ -70,18 +70,14 @@
 				<div class="RightUserItem">
 					<img class="usericon" class="img-circle" alt=""
 					     src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
-
 				</div>
-				<div class="RightUserItem">
-					<a class="htmltext_username text-dec-none" style="color: black">NULL</a>
-				</div>
+				<div class="RightUserItem htmltext_username">null</div>
 				<div class="RightUserItem" style="float: right">
 					<a class="text-dec-none" href="\login" style="color: rgb(23,60,161)">【退出】</a>
 				</div>
 				<div class="RightUserItem" style="float: right">
 					<a class="text-dec-none" href="\usercenter">用户中心</a>
 				</div>
-
 			</div>
 
 
@@ -94,34 +90,9 @@
 			<div id="light_on" class="disactive" onclick="SetLight()">
 				<img src="{{ url_for('static', filename='Media/img/icon/brightness-high.png') }}" width="25px">
 			</div>
-			<script>
-				function SetLight() {
-					console.log(11)
-					let LightOff_Class = 'bg-dark text-light';
-					let LightOn_Class = 'bg-light text-dark';
-					if (sessionStorage.getItem("file_light") === "\"LightON\"") {
-						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
-						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
-						$("#light_off").removeClass("active").addClass("disactive");
-						$("#light_on").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify("LightOFF"));//session保存数据到浏览器缓存
-					} else if (sessionStorage.getItem("file_light") === "\"LightOFF\"") {
-						$("body").removeClass(LightOff_Class).addClass(LightOn_Class)
-						$("#navbar_top_main").removeClass("navbar-dark navbg-dark").addClass("navbar-light navbg-light");
-						$("#light_on").removeClass("active").addClass("disactive");
-						$("#light_off").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify("LightON"));//session保存数据到浏览器缓存
-					} else { //定义第一次关灯
-						$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
-						$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
-						$("#light_off").removeClass("active").addClass("disactive");
-						$("#light_on").removeClass("disactive").addClass("active");
-						sessionStorage.setItem("file_light", JSON.stringify('LightOFF'));//session保存数据到浏览器缓存
-					}
-				}
-			</script>
+
 		</div>
-		<div class="dropdown" id="wide_rightuser">
+		<div class="dropdown" id="div_wide_rightuser">
 			<div class="dropdown-toggle RightUserItem" id="dropdownMenuButton1" data-bs-toggle="dropdown"
 			     aria-expanded="false" style="cursor: pointer">
 				<img class="usericon" class="img-circle"
@@ -129,9 +100,9 @@
 			</div>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 				<!--todo 个人中心-->
-				<li class="dropdown-item htmltext_username disabled">null</li>
+				<li class="htmltext_username">null</li>
 				<li class="dropdown-divider"></li>
-				<li><a class="dropdown-item" href="\usercenter">个人中心</a></li>
+				<li><a class="dropdown-item" href="\usercenter" target="_blank">个人中心</a></li>
 				<li><a class="dropdown-item disabled">preserve</a></li>
 				<li class="dropdown-divider"></li>
 				<li><a class="dropdown-item" href="#" onclick="Logout()">退出</a></li>
@@ -141,20 +112,7 @@
 </nav>
 
 <div id="container_main" class="container-fluid" style="padding:0px">
-	<script>
-		function turnPage(url) {
-			$.ajax({
-				type: "get",
-				url: url,
-				async: true,	//使用同步的方式,true为异步方式
-				success: function (html) {
-					$("#container_main").html(html);
-				}
-			})
-			$()
-		}
-	</script>
-
+	{% block content %}{% endblock %}
 </div>
 
 <footer class="footer mt-auto container-fluid fixed-bottom">
@@ -172,14 +130,35 @@
 
 <script>
 	window.onload = function () {
+		{% block scripts %}{% endblock %}
 		let currentuser = sessionStorage.getItem("file_currentuser")
 		if (currentuser == null) {
 			alert("请先登录");
 			//window.location.href = "\\";
 		} else {
-			$(".htmltext_username").html(currentuser + "☆");
+			$(".htmltext_username").html('' + currentuser + "☆");
 		}
-		turnPage('/home/banner')
+		temp_spg = {{ OnloadScriptString }};
+		console.log(temp_spg)
+		switch (temp_spg) {
+			case 0:
+				turnPage('/home/banner', temp_spg)
+				break
+			case 1:
+				turnPage('/home/SmallStore', temp_spg)
+				break
+
+			case 2:
+				turnPage('/home/Busstation', temp_spg)
+				break
+			case 3:
+				turnPage('/home/Wolserver', temp_spg)
+				break
+			case 4:
+				turnPage('/home/report', temp_spg)
+				break
+		}
+
 
 		if (JSON.parse(sessionStorage.getItem("file_light") === "\"LightOFF\"")) {
 			let LightOff_Class = 'bg-dark text-light';
@@ -189,7 +168,19 @@
 			$("#light_off").removeClass("active").addClass("disactive");
 			$("#light_on").removeClass("disactive").addClass("active");
 		}
-		console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★                                 ↖）            ★\n★                          <=======█≪             ★\n★                  ========▅▆▇█████▇            ★\n★                  ======▇█████▇█▇██              ★\n★      ▃▅▆▇██████████████▇15-95▇█████████       ★\n★    ◥███████████████████████████████████████       ★    /*这一行故意加的*/\n★      ◥⊙█████████████████████████████████⊙◤    ★\n★        ◥⊙▆▆⊙▆▆▆⊙▆▆⊙▆▆⊙▆▆⊙◤       ★\n★      95高炮保佑       永无BUG       永不宕机     ★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★")
+		//console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★                                 ↖）            ★\n★                          <=======█≪             ★\n★                  ========▅▆▇█████▇            ★\n★                  ======▇█████▇█▇██              ★\n★      ▃▅▆▇██████████████▇15-95▇█████████       ★\n★    ◥███████████████████████████████████████       ★    /*这一行故意加的*/\n★      ◥⊙█████████████████████████████████⊙◤    ★\n★        ◥⊙▆▆⊙▆▆▆⊙▆▆⊙▆▆⊙▆▆⊙◤       ★\n★      95高炮保佑       永无BUG       永不宕机     ★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★")
+	}
+
+	function turnPage(url, synth) {
+		$.ajax({
+			type: "get",
+			url: url,
+			async: true,	//使用同步的方式,true为异步方式
+			success: function (html) {
+				$("#container_main").html(html)
+				SwitchNavLink_active(synth)
+			}
+		})
 	}
 
 	function SwitchNavLink_active(synth) {

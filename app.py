@@ -61,7 +61,14 @@ def usercenter():
 ########################################HOME INDEX########################################
 @app.route('/home')
 def home():
-	return render_template('/apps/home.html')
+	i = request.args['i']
+	if (i == None):
+		i = 0
+	print(i)
+	return render_template(
+		'/apps/home.html',
+		OnloadScriptString=i
+	)
 
 
 ####################
@@ -73,26 +80,30 @@ def banner():
 
 
 @app.route("/announcementlist_js_post/", methods=['POST'])
-def announcement_js_post():
+def announcementlist_js_post():
 	obj_announcement = Announcement()
 	announcementResult = obj_announcement.printAnnouncementHTML()
 	return announcementResult
 
 
 @app.route("/home/announcement/<string>", methods=['POST', 'GET'])
-def dfdfdf(string):
+def announcementinfo(string):
 	result = UrlDecode.Decode(string)
 	obj_announcement = Announcement()
 	announcementResult = obj_announcement.getAnnouncement(result[0])
-	return render_template(
-		'/apps/11_announcement.html',
-		username=result[1],
-		ID=announcementResult[0][0],
-		title=announcementResult[0][3],
-		time=announcementResult[0][1],
-		author=announcementResult[0][2],
-		text=announcementResult[0][4]
-	)
+	print(result[0])
+	if result[1] != 'null':
+		return render_template(
+			'/apps/11_announcement.html',
+			username=result[1],
+			ID=announcementResult[0][0],
+			title=announcementResult[0][3],
+			time=announcementResult[0][1],
+			author=announcementResult[0][2],
+			text=announcementResult[0][4]
+		)
+	else:
+		return '请先登录<br>Please Login'
 
 
 ####################
@@ -138,6 +149,6 @@ def report():
 
 ################################################################################
 if __name__ == '__main__':
-	app.run()
-# 如果你想实际开服，请使用下面那条
-# app.run(host='0.0.0.0',port=5000)
+	# app.run()
+	# 如果你想实际开服，请使用下面那条
+	app.run(host='0.0.0.0', port=5000)
