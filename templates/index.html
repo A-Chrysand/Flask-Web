@@ -4,215 +4,221 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="{{url_for('static',filename='Media/img/icon/favicon.png')}}" type="image/x-icon"/>
-	<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" href="../static/Media/img/icon/favicon.png" type="image/x-icon" />
+	<script src="../static/CodeBase/jquery-3.5.1.min.js"></script>
+	<script src="../static/CodeBase/bootstrap.min.js"></script>
+	<link href="../static/CodeBase/bootstrap.min.css" rel="stylesheet">
+
 	<title>Deverb</title>
-	<link rel="stylesheet" href="{{url_for('static',filename='Media/font/fontcreator.css')}}">
-	<link href="{{url_for('static',filename='Src/host/index.css')}}" rel="stylesheet">
-	<script src="{{url_for('static',filename='CodeBase/aos.js')}}"></script>
-	<link href="{{url_for('static',filename='CodeBase/aos.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="../static/Media/font/fontcreator.css">
+	<link href="../static/Src/host/index.css" rel="stylesheet">
+	<script src="../static/CodeBase/aos.js"></script>
+	<link href="../static/CodeBase/aos.css" rel="stylesheet">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="topnavbar">
-	<div class="container-fluid">
-		<img src="{{url_for('static',filename='Media/img/icon/favicon.png')}}" alt="">
-		<span class="navbar-brand" style="font-family: FreestyleScript,serif;letter-spacing: 0.1rem;font-size: 2rem;padding: 0;line-height: 40px">Dreamweaker</span>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-		        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<ul class="navbar-nav me-auto mb-2 mb-md-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Totop</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#potato_market">ToMarket</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#bottom_footer">ToBottom</a>
-				</li>
-			</ul>
-			<form class="d-flex">
-				<button class="btn btn-info" type="button" onclick="jumptologin()">登录&注册</button>
-			</form>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="topnavbar">
+		<div class="container-fluid">
+			<img src="../static/Media/img/icon/favicon.png" alt="">
+			<span class="navbar-brand"
+				style="font-family: FreestyleScript,serif;letter-spacing: 0.1rem;font-size: 2rem;padding: 0;line-height: 40px">Dreamweaker</span>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+				aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav me-auto mb-2 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Totop</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#potato_market">ToMarket</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#bottom_footer">ToBottom</a>
+					</li>
+				</ul>
+				<form class="d-flex">
+					<button class="btn btn-info" type="button" onclick="jumptologin()">登录&注册</button>
+				</form>
+			</div>
+			<script>
+				$(".nav-link:eq(0)").trigger('click', function () {
+					$(".nav-link").removeClass("active");
+					$(".nav-link:eq(0)").addClass("active");
+				});
+
+				$(".nav-link:eq(1)").trigger('click', function () {
+					$(".nav-link").removeClass("active");
+					$(".nav-link:eq(1)").addClass("active");
+				});
+
+				$(".nav-link:eq(2)").trigger('click', function () {
+					$(".nav-link").removeClass("active");
+					$(".nav-link:eq(2)").addClass("active");
+				});
+			</script>
 		</div>
-		<script>
-			$(".nav-link:eq(0)").trigger('click',function () {
-				$(".nav-link").removeClass("active");
-				$(".nav-link:eq(0)").addClass("active");
-			});
-
-			$(".nav-link:eq(1)").trigger('click',function () {
-				$(".nav-link").removeClass("active");
-				$(".nav-link:eq(1)").addClass("active");
-			});
-
-			$(".nav-link:eq(2)").trigger('click',function () {
-				$(".nav-link").removeClass("active");
-				$(".nav-link:eq(2)").addClass("active");
-			});
-		</script>
-	</div>
-</nav>
-<!------------------------------滚动广告----------------------------------->
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 56px;">
-	<div class="carousel-indicators">
-		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-		        aria-current="true" aria-label="Slide 1"></button>
-		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-		        aria-label="Slide 2"></button>
-		<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-		        aria-label="Slide 3"></button>
-	</div>
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<div class="carousel-caption" id="FirstCarouselCaption">
-				<h1><span
-						style=" width: 20rem;background-color: rgba(0,0,0,0.25);user-select: none;">&nbsp;&nbsp;&nbsp;🚀立即出发🚀&nbsp;&nbsp;&nbsp;</span>
-				</h1>
-				<p class="d-none d-md-block">今晚秋名山缺你不可！</p>
-				<button class="btn btn-info" id="toLogin" onclick="jumptologin()">🚀🚀🚀🚀🚀</button>
-				<p class="d-sm-block d-none  d-xs-block"><br></p>
-				<style>
-					@media (max-width: 768px) {
-						#toLogin {
-							margin-top: 1rem !important;
+	</nav>
+	<!------------------------------滚动广告----------------------------------->
+	<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="margin-top: 56px;">
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+				aria-current="true" aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+				aria-label="Slide 2"></button>
+			<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+				aria-label="Slide 3"></button>
+		</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<div class="carousel-caption" id="FirstCarouselCaption">
+					<h1><span
+							style=" width: 20rem;background-color: rgba(0,0,0,0.25);user-select: none;">&nbsp;&nbsp;&nbsp;🚀立即出发🚀&nbsp;&nbsp;&nbsp;</span>
+					</h1>
+					<p class="d-none d-md-block">今晚秋名山缺你不可！</p>
+					<button class="btn btn-info" id="toLogin" onclick="jumptologin()">🚀🚀🚀🚀🚀</button>
+					<p class="d-sm-block d-none  d-xs-block"><br></p>
+					<style>
+						@media (max-width: 768px) {
+							#toLogin {
+								margin-top: 1rem !important;
+							}
 						}
-					}
-				</style>
+					</style>
+				</div>
+			</div>
+			<div class="carousel-item wrapper">
+				<div class="carousel-caption">
+					<h5>2 slide label</h5>
+					<p class=" d-none d-md-block">nobody is responsibilibility to this page</p>
+					<p class="d-sm-block d-none  d-xs-block"><br></p>
+				</div>
+			</div>
+			<div class="carousel-item wrapper">
+				<div class="carousel-caption">
+					<h5>3 slide label</h5>
+
+					<p class=" d-none d-md-block">nobody is responsibilibility to this page</p>
+					<p class="d-none d-sm-block  d-xs-block"><br></p>
+				</div>
 			</div>
 		</div>
-		<div class="carousel-item wrapper">
-			<div class="carousel-caption">
-				<h5>2 slide label</h5>
-				<p class=" d-none d-md-block">nobody is responsibilibility to this page</p>
-				<p class="d-sm-block d-none  d-xs-block"><br></p>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+			data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+	<!------------------------------滚动广告----------------------------------->
+	<!------------------------------3个圆圈----------------------------------->
+	<div class="container marketing" data-aos="fade-up" data-aos-duration="500">
+		<div class="row">
+			<div class="col-lg-4">
+				<img class="bd-placeholder-img rounded-circle" width="140" height="140"
+					src="../static/Media/img/picture/busstation.jpg" focusable="false" alt="">
+				<h2>Bus station</h2>
+				<p>Communication & Relax</p>
+			</div>
+			<div class="col-lg-4">
+				<img class="bd-placeholder-img rounded-circle" width="140" height="140"
+					src="../static/Media/img/picture/qiumingshan.jpg" focusable="false" alt="">
+				<h2>Déjà Vu</h2>
+				<p>Exciting time shatter</p>
+			</div>
+			<div class="col-lg-4">
+				<img class="bd-placeholder-img rounded-circle" width="140" height="140"
+					src="../static/Media/img/picture/wake.jpg" focusable="false" alt="">
+				<h2>Waking</h2>
+				<p>Support LAN wake up</p>
 			</div>
 		</div>
-		<div class="carousel-item wrapper">
-			<div class="carousel-caption">
-				<h5>3 slide label</h5>
+	</div>
+	<!------------------------------3个圆圈----------------------------------->
+	<div class="wrapperx" data-aos="fade-down" data-aos-duration="500">
+		<div class="wrapper-indicator">
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+				<polygon points="0,12.5 10,0 20,12.5 10,25"></polygon>
+			</svg>
+		</div>
+	</div>
+	<div style="height: 2.25rem">
+		<!--占位用的-->
+	</div>
+	<div id="potato_market">
+		<!--做锚点用的-->
+	</div>
+	<hr class="featurette-divider" style="margin:2.75rem 0 ">
+	<!-----------------------------土豆服务器------------------------------------>
+	<div class="container col marketing">
+		<div class="row featurette">
+			<div class="col-md-7" data-aos="fade-up">
+				<h2 class="featurette-heading">极其强大的服务器 <span class="text-muted"></span></h2>
+				<p class="lead">获得国际著名游戏公<span style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">育</span>司<span
+						style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">碧</span>认证，带给您极致体验</p>
+				<ul>
+					<li>搭载农企A6 4核CPU，让您的拖拉机跑得比记者还快</li>
+					<li>搭载拥有15400小时文件管理经验的2.5英寸 5400转硬盘</li>
+					<li>搭载极其安全的CentOS系统，随时[root@localhost]# sudo rm -rf删除病毒</li>
+				</ul>
+			</div>
+			<div class="col-md-5" data-aos="fade-down">
+				<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+					height="500" src="../static/Media/img/picture/server.jpg" focusable="false" alt="">
+			</div>
+		</div>
+		<hr class="featurette-divider">
+		<div class="row featurette">
+			<div class="col-md-7 order-md-2" data-aos="fade-up">
+				<h2 class="featurette-heading">丰富的文件管理经验<span class="text-muted"></span></h2>
+				<p class="lead">完美整理文件，绝对不会让您的宝贵文件丢失。</p>
+				<ul>
+					<li>文件的真是十整分洁</li>
+					<li>整洁我到都知不道去哪里了</li>
+					<li>西数盘绿随时桶提跑路</li>
+				</ul>
+			</div>
+			<div class="col-md-5 order-md-1" data-aos="fade-down">
+				<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+					height="500" src="../static/Media/img/picture/files.png" focusable="false" alt="">
+			</div>
+		</div>
+		<hr class="featurette-divider">
+		<div class="row featurette" data-aos="fade-up">
+			<div class="col-md-7">
+				<h2 class="featurette-heading">随时访问您的文件<span class="text-muted"></span></h2>
+				<p class="lead">服务器一天24分钟<span style="color: rgba(0,0,0,0.5);font-size: 0.5rem;">都不到</span>开机，让您随时都<span
+						style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">不</span>可以访问您的文件</p>
 
-				<p class=" d-none d-md-block">nobody is responsibilibility to this page</p>
-				<p class="d-none d-sm-block  d-xs-block"><br></p>
+				<img class="mb-sm-3" width="100%" style="max-width: 500px;" src="../static/Media/img/picture/error.jpg"
+					alt="">
+
+			</div>
+			<div class="col-md-5" data-aos="fade-down">
+				<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+					height="500" src="../static/Media/img/picture/clock.png" focusable="false" alt="">
 			</div>
 		</div>
 	</div>
-	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-	        data-bs-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Previous</span>
-	</button>
-	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-	        data-bs-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="visually-hidden">Next</span>
-	</button>
-</div>
-<!------------------------------滚动广告----------------------------------->
-<!------------------------------3个圆圈----------------------------------->
-<div class="container marketing" data-aos="fade-up" data-aos-duration="500">
-	<div class="row">
-		<div class="col-lg-4">
-			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/busstation.jpg')}}" focusable="false" alt="">
-			<h2>Bus station</h2>
-			<p>Communication & Relax</p>
-		</div>
-		<div class="col-lg-4">
-			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/qiumingshan.jpg')}}" focusable="false" alt="">
-			<h2>Déjà Vu</h2>
-			<p>Exciting time shatter</p>
-		</div>
-		<div class="col-lg-4">
-			<img class="bd-placeholder-img rounded-circle" width="140" height="140"
-			     src="{{url_for('static',filename='Media/img/picture/wake.jpg')}}" focusable="false" alt="">
-			<h2>Waking</h2>
-			<p>Support LAN wake up</p>
-		</div>
-	</div>
-</div>
-<!------------------------------3个圆圈----------------------------------->
-<div class="wrapperx" data-aos="fade-down" data-aos-duration="500">
-	<div class="wrapper-indicator">
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-			<polygon points="0,12.5 10,0 20,12.5 10,25"></polygon>
-		</svg>
-	</div>
-</div>
-<div style="height: 2.25rem"><!--占位用的--></div>
-<div id="potato_market"><!--做锚点用的--></div>
-<hr class="featurette-divider" style="margin:2.75rem 0 ">
-<!-----------------------------土豆服务器------------------------------------>
-<div class="container col marketing">
-	<div class="row featurette">
-		<div class="col-md-7" data-aos="fade-up">
-			<h2 class="featurette-heading">极其强大的服务器 <span class="text-muted"></span></h2>
-			<p class="lead">获得国际著名游戏公<span style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">育</span>司<span
-					style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">碧</span>认证，带给您极致体验</p>
-			<ul>
-				<li>搭载农企A6 4核CPU，让您的拖拉机跑得比记者还快</li>
-				<li>搭载拥有15400小时文件管理经验的2.5英寸 5400转硬盘</li>
-				<li>搭载极其安全的CentOS系统，随时[root@localhost]# sudo rm -rf删除病毒</li>
-			</ul>
-		</div>
-		<div class="col-md-5" data-aos="fade-down">
-			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/server.jpg')}}" focusable="false" alt="">
-		</div>
-	</div>
-	<hr class="featurette-divider">
-	<div class="row featurette">
-		<div class="col-md-7 order-md-2" data-aos="fade-up">
-			<h2 class="featurette-heading">丰富的文件管理经验<span class="text-muted"></span></h2>
-			<p class="lead">完美整理文件，绝对不会让您的宝贵文件丢失。</p>
-			<ul>
-				<li>文件的真是十整分洁</li>
-				<li>整洁我到都知不道去哪里了</li>
-				<li>西数盘绿随时桶提跑路</li>
-			</ul>
-		</div>
-		<div class="col-md-5 order-md-1" data-aos="fade-down">
-			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/files.png')}}" focusable="false" alt="">
-		</div>
-	</div>
-	<hr class="featurette-divider">
-	<div class="row featurette" data-aos="fade-up">
-		<div class="col-md-7">
-			<h2 class="featurette-heading">随时访问您的文件<span class="text-muted"></span></h2>
-			<p class="lead">服务器一天24分钟<span style="color: rgba(0,0,0,0.5);font-size: 0.5rem;">都不到</span>开机，让您随时都<span
-					style="color: rgba(0,0,0,0.5);font-size: 0.75rem;">不</span>可以访问您的文件</p>
-
-			<img class="mb-sm-3" width="100%" style="max-width: 500px;"
-			     src="{{url_for('static',filename='Media/img/picture/error.jpg')}}" alt="">
-
-		</div>
-		<div class="col-md-5" data-aos="fade-down">
-			<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-			     height="500" src="{{url_for('static',filename='Media/img/picture/clock.png')}}" focusable="false" alt="">
-		</div>
-	</div>
-</div>
-<!-----------------------------土豆服务器------------------------------------>
-<hr class="featurette-divider" id="bottom_footer" style="margin: 4rem 0 1rem 0;">
-<!-----------------------------封底------------------------------------>
-<footer class="container mb-4">
-	<p class="float-end"><a href="#">Back to top</a></p>
-	<p>&copy; 2021–2021 🤓 <a href="#">Public</a> &middot; <a href="#">😅</a></p>
-</footer>
+	<!-----------------------------土豆服务器------------------------------------>
+	<hr class="featurette-divider" id="bottom_footer" style="margin: 4rem 0 1rem 0;">
+	<!-----------------------------封底------------------------------------>
+	<footer class="container mb-4">
+		<p class="float-end"><a href="#">Back to top</a></p>
+		<p>&copy; 2021–2021 🤓 <a href="#">Public</a> &middot; <a href="#">😅</a></p>
+	</footer>
 </body>
 
 <script>
 	AOS.init();
 
 	function jumptologin() {
-		window.location.href = "\login";
+		window.location.href = "./account/login.html";
 		return false;
 	}
 

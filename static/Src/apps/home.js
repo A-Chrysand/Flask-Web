@@ -1,6 +1,6 @@
 function Logout() {
 	sessionStorage.removeItem("file_currentuser")
-	window.location.href = "../login"
+	window.location.href = "/templates/account/login.html"
 }
 
 $("#colled_rightuser").trigger("click", function () {

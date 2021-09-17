@@ -18,7 +18,7 @@ function createBundle(id, color, strwid) {
 }
 
 function jumptoIndex() {
-	window.location.href = "\\";
+	window.location.href = "/templates/index.html";
 	return false;
 }
 

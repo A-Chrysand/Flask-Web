@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{{ url_for('static',filename='Src/account/usercenter/usercenter.css') }}">
+	<link rel="stylesheet" href="../../static/Src/account/usercenter/usercenter.css">
 	<title>3st</title>
 	<script>
 		let toggleNavStatus = false;
@@ -35,51 +35,51 @@
 </head>
 
 <body>
-<header>
-	<div></div>
-	<div class="offset-left-nav">
-		<span class="nav-brand-icon">★</span>
-		<span class="nav-brand-text">index</span>
+	<header>
+		<div></div>
+		<div class="offset-left-nav">
+			<span class="nav-brand-icon">★</span>
+			<span class="nav-brand-text">index</span>
+		</div>
+		<div id="div_wide_rightuser">
+			<img class="usericon img-circle" src="../../static/Media/img/icon/usericon.ico') }}">
+			<span class="htmltext_username">null</span>
+		</div>
+	</header>
+	<aside class="side-bar control-coll">
+		<div class="toggle-hamburg-icon" onclick="toggleNav()">
+			<i class="fa fa-bars hamburg"
+				style="padding: 0; z-index:999; display: block; width: 50px;height: 50px;background-color: yellow;">close</i>
+			<i class="fa fa-times close-side"
+				style="padding: 0; z-index:999;width: 50px;height: 50px;background-color: red;">open</i>
+		</div>
+		<ul>
+			<li class="active">
+				<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">基本信息</a>
+				<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">1</a>
+			</li>
+			<li>
+				<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">修改密码</a>
+				<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">2</a>
+			</li>
+			<li>
+				<a href="#" class="alink" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">设置</a>
+				<a href="#" class="d50" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">3</a>
+			</li>
+			<li>
+				<a href="#" class="alink" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">Diss管理员</a>
+				<a href="#" class="d50" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">4</a>
+			</li>
+			<li>
+				<a href="/home" target="_blank" class="alink">蛤</a>
+				<a href="/home" target="_blank" class="d50">5</a>
+			</li>
+		</ul>
+	</aside>
+	<div class="container offset-left-container">
+		<div id="container_main"></div>
+		This is 3 stop left side menu bar<br>
 	</div>
-	<div id="div_wide_rightuser">
-		<img class="usericon img-circle" src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
-		<span class="htmltext_username">null</span>
-	</div>
-</header>
-<aside class="side-bar control-coll">
-	<div class="toggle-hamburg-icon" onclick="toggleNav()">
-		<i class="fa fa-bars hamburg"
-		   style="padding: 0; z-index:999; display: block; width: 50px;height: 50px;background-color: yellow;">close</i>
-		<i class="fa fa-times close-side"
-		   style="padding: 0; z-index:999;width: 50px;height: 50px;background-color: red;">open</i>
-	</div>
-	<ul>
-		<li class="active">
-			<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">基本信息</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">1</a>
-		</li>
-		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">修改密码</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">2</a>
-		</li>
-		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">设置</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">3</a>
-		</li>
-		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">Diss管理员</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">4</a>
-		</li>
-		<li>
-			<a href="/home" target="_blank" class="alink">蛤</a>
-			<a href="/home" target="_blank" class="d50">5</a>
-		</li>
-	</ul>
-</aside>
-<div class="container offset-left-container">
-	<div id="container_main"></div>
-	This is 3 stop left side menu bar<br>
-</div>
 </body>
 <script>
 	function turnPage(url) {
@@ -94,4 +94,5 @@
 		$()
 	}
 </script>
+
 </html>

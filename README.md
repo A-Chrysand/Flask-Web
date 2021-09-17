@@ -13,7 +13,8 @@ If you want to run it on a server, you need to change app.run(host='0.0.0.0',por
 > * Account system
 >> + Login(√)
 >> + Register(√)
->> + Reset account info()
+>> + Reset account infomation()
+>> + user picture/audio/movie and ...()
 > * Online communication()
 > * File system(FTP or HTTP)()
 >> * Upload part()
