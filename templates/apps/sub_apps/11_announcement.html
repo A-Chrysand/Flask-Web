@@ -1,0 +1,47 @@
+{% extends "/apps/Layout.html" %}
+
+{% block navlink_ul %}
+	<ul class="navbar-nav me-auto">
+		<li class="nav-item col-md-12 col-lg-3">
+			<a class="nav-link active" href="{{ url_for('home',i=0) }}">首页</a>
+		</li>
+		<li class="nav-item  col-md-12 col-lg-3">
+			<a class="nav-link" href="{{ url_for('home',i=1) }}">小卖部</a>
+		</li>
+		<li class="nav-item col-md-12 col-lg-3">
+			<a class="nav-link" href="{{ url_for('home',i=2) }}">停车场</a>
+		</li>
+		<li class="nav-item col-md-12 col-lg-4">
+			<a class="nav-link" href="{{ url_for('home',i=3) }}">WOL服务</a>
+		</li>
+		<li class="nav-item col-md-12 col-lg-4">
+			<a class="nav-link" href="{{ url_for('home',i=4) }}">开发及反馈</a>
+		</li>
+		<li>
+			<hr class="dropdown-divider mb-0">
+		</li>
+	</ul>
+{% endblock %}
+
+
+{% block content %}
+	<div class="container" id="div_announcement_page">
+		<h1 class="h1_ann_title">{{ title }}</h1>
+		<hr class="mb-1">
+		<div class="div_ann_info ">
+			<span class="col-4">{{ ID }}</span>
+			<span class="col-4" style="text-align: center;">{{ author }}</span>
+			<span class="col-4" style="text-align: right;">{{ time }}</span>
+		</div>
+		<p class="p_ann_text mt-2">{{ text }}</p>
+		<hr class="mt-3 mb-2" style="max-width: 50%;margin-left: 25%">
+		<p class="p_ann_end">😅</p>
+	</div>
+{% endblock %}
+{% block scripts %}
+	sessionStorage.setItem("file_currentuser","{{ username }}")
+	if(document.body.clientWidth>768)
+	{
+	document.querySelector("footer").style.display='block'
+	}
+{% endblock %}

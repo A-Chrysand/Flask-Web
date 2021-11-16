@@ -5,6 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ url_for('static',filename='Src/account/usercenter/usercenter.css') }}">
+	<script src="{{ url_for('static',filename='CodeBase/jquery-3.5.1.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='CodeBase/bootstrap.min.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static',filename='Src/account/usercenter/bs_exp.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='Src/_common/common.css') }}">
+	<script src="{{ url_for('static',filename='Src/account/usercenter/usercenterpage.js') }}"></script>
+	<script src="{{ url_for('static',filename='Src/account/usercenter/submitchange.js') }}"></script>
+	<script src="{{ url_for('static',filename='Src/account/login/ciphertext.js') }}"></script>
 	<title>3st</title>
 	<script>
 		let toggleNavStatus = false;
@@ -42,7 +49,7 @@
 		<span class="nav-brand-text">index</span>
 	</div>
 	<div id="div_wide_rightuser">
-		<img class="usericon img-circle" src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
+		<img class="usericon img-circle" src="#">
 		<span class="htmltext_username">null</span>
 	</div>
 </header>
@@ -55,43 +62,87 @@
 	</div>
 	<ul>
 		<li class="active">
-			<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">基本信息</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(0)">1</a>
+			<span class="alink"
+			   onclick="turnPage('/usercenter/js_post_basicinfo');SwitchNavLink_active(0)">基本信息</span>
+			<span class="d50" onclick="turnPage('/usercenter/js_post_basicinfo');SwitchNavLink_active(0)">1</span>
 		</li>
 		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">修改密码</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/basicinfo');SwitchNavLink_active(1)">2</a>
+			<span class="alink"
+			   onclick="turnPage('/usercenter/js_post_secretinfo');SwitchNavLink_active(1)">修改密码</span>
+			<span class="d50" onclick="turnPage('/usercenter/js_post_secretinfo');SwitchNavLink_active(1)">2</span>
 		</li>
 		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">设置</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/setting');SwitchNavLink_active(2)">3</a>
+			<span class="alink" onclick="turnPage('/usercenter/js_post_setting');SwitchNavLink_active(2)">设置</span>
+			<span class="d50" onclick="turnPage('/usercenter/js_post_setting');SwitchNavLink_active(2)">3</span>
 		</li>
 		<li>
-			<a href="#" class="alink" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">Diss管理员</a>
-			<a href="#" class="d50" onclick="turnPage('/usercenter/contact');SwitchNavLink_active(3)">4</a>
+			<span class="alink" onclick="turnPage('/usercenter/js_post_diss');SwitchNavLink_active(3)">Diss管理员</span>
+			<span class="d50" onclick="turnPage('/usercenter/js_post_diss');SwitchNavLink_active(3)">4</span>
 		</li>
 		<li>
-			<a href="/home" target="_blank" class="alink">蛤</a>
-			<a href="/home" target="_blank" class="d50">5</a>
+			<a href="/home?i=0" target="_blank" class="alink" disabled>蛤</a>
+			<a href="/home?i=0" target="_blank" class="d50">5</a>
 		</li>
 	</ul>
 </aside>
 <div class="container offset-left-container">
 	<div id="container_main"></div>
-	This is 3 stop left side menu bar<br>
 </div>
 </body>
 <script>
+	window.onload = function () {
+		currentuser = "{{ file_currentuser }}"
+		sessionStorage.setItem("file_currentuser", currentuser)
+		$(".htmltext_username").html(currentuser)
+		turnPage('/usercenter/js_post_basicinfo')
+		SwitchNavLink_active(0)
+		getUserImg(currentuser)
+	}
+
+	function getUserImg(username) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "{{ url_for('static',filename='Media/img/user/icon/') }}" + username + ".ico");
+		xhr.responseType = "blob"
+		xhr.onload = response
+		xhr.send()
+		function response(e) {
+			if (xhr.response != null) {
+				var urlCreator = window.URL || window.webkitURL;
+				var imageUrl = urlCreator.createObjectURL(this.response);
+				if (xhr.status == 200) {
+					$(".usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/') }}" + username + ".ico")
+				} else {
+					$(".usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/default.ico') }}")
+
+				}
+			}
+		}
+	}
+
 	function turnPage(url) {
 		$.ajax({
 			type: "get",
 			url: url,
 			async: true,	//使用同步的方式,true为异步方式
 			success: function (html) {
+				$("#container_main").html("");
 				$("#container_main").html(html);
 			}
 		})
 		$()
+	}
+
+	function SwitchNavLink_active(synth) {
+		$("ul a").removeClass("active")
+		$("ul li").removeClass("active")
+		$("ul li:eq(" + synth + ")").addClass("active")
+		$("ul a:eq(" + synth + ")").addClass("active")
+
+		if (synth == 1 || synth == 2) {
+			$("footer").css("height", "0")
+		} else {
+			$("footer").css("height", "var(--footer_Height)")
+		}
 	}
 </script>
 </html>

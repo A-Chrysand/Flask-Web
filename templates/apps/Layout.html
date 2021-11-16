@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="{{ url_for('static',filename='Media/img/icon/favicon.png') }}" type="image/x-icon"/>
 	<script src="{{ url_for('static',filename='CodeBase/jquery-3.5.1.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='CodeBase/vue.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='CodeBase/bootstrap.min.js') }}"></script>
 	<link href="{{ url_for('static',filename='CodeBase/bootstrap.min.css') }}" rel="stylesheet">
 	<title>Dreamweaver</title>
@@ -46,37 +47,20 @@
 		<!--桌面端导航栏-->
 		<div class="collapse navbar-collapse" id="NavbarContent">
 			<!--导航栏内容-->
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link active" href="{{ url_for('home',i=0) }}">首页</a>
-				</li>
-				<li class="nav-item  col-md-12 col-lg-3">
-					<a class="nav-link" href="{{ url_for('home',i=1) }}">小卖部</a>
-				</li>
-				<li class="nav-item col-md-12 col-lg-3">
-					<a class="nav-link" href="{{ url_for('home',i=2) }}">停车场</a>
-				</li>
-				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link" href="{{ url_for('home',i=3) }}">WOL服务</a>
-				</li>
-				<li class="nav-item col-md-12 col-lg-4">
-					<a class="nav-link"href="{{ url_for('home',i=4) }}">开发及反馈</a>
-				</li>
-				<li>
-					<hr class="dropdown-divider mb-0">
-				</li>
-			</ul>
+			{% block navlink_ul %}{% endblock %}
+
+			{{ blockend }}
 			<div id="colled_rightuser">
 				<div class="RightUserItem">
 					<img class="usericon" class="img-circle" alt=""
-					     src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
+					     src="#">
 				</div>
 				<div class="RightUserItem htmltext_username">null</div>
 				<div class="RightUserItem" style="float: right">
 					<a class="text-dec-none" href="\login" style="color: rgb(23,60,161)">【退出】</a>
 				</div>
 				<div class="RightUserItem" style="float: right">
-					<a class="text-dec-none" href="\usercenter">用户中心</a>
+					<a class="text-dec-none link_usercenter" href="#">用户中心</a>
 				</div>
 			</div>
 
@@ -96,13 +80,12 @@
 			<div class="dropdown-toggle RightUserItem" id="dropdownMenuButton1" data-bs-toggle="dropdown"
 			     aria-expanded="false" style="cursor: pointer">
 				<img class="usericon" class="img-circle"
-				     src="{{ url_for('static',filename='Media/img/icon/usericon.ico') }}">
+				     src="#">
 			</div>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-				<!--todo 个人中心-->
 				<li class="htmltext_username">null</li>
 				<li class="dropdown-divider"></li>
-				<li><a class="dropdown-item" href="\usercenter" target="_blank">个人中心</a></li>
+				<li><a class="dropdown-item link_usercenter" href="#" target="_blank">个人中心</a></li>
 				<li><a class="dropdown-item disabled">preserve</a></li>
 				<li class="dropdown-divider"></li>
 				<li><a class="dropdown-item" href="#" onclick="Logout()">退出</a></li>
@@ -137,37 +120,36 @@
 			//window.location.href = "\\";
 		} else {
 			$(".htmltext_username").html('' + currentuser + "☆");
+			$(".link_usercenter").attr("href", "/usercenter/" + currentuser)
+			getUserImg(currentuser)
+			temp_spg = {{ OnloadScriptString }};
+			switch (temp_spg) {
+				case 0:
+					turnPage('/home/banner', temp_spg)
+					break
+				case 1:
+					turnPage('/home/SmallStore', temp_spg)
+					break
+				case 2:
+					turnPage('/home/Busstation', temp_spg)
+					break
+				case 3:
+					turnPage('/home/Wolserver', temp_spg)
+					break
+				case 4:
+					turnPage('/home/report', temp_spg)
+					break
+			}
+			if (JSON.parse(sessionStorage.getItem("file_light") === "\"LightOFF\"")) {
+				let LightOff_Class = 'bg-dark text-light';
+				let LightOn_Class = 'bg-light text-dark';
+				$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
+				$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
+				$("#light_off").removeClass("active").addClass("disactive");
+				$("#light_on").removeClass("disactive").addClass("active");
+			}
+			//console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★                                 ↖）            ★\n★                          <=======█≪             ★\n★                  ========▅▆▇█████▇            ★\n★                  ======▇█████▇█▇██              ★\n★      ▃▅▆▇██████████████▇15-95▇█████████       ★\n★    ◥███████████████████████████████████████       ★    /*这一行故意加的*/\n★      ◥⊙█████████████████████████████████⊙◤    ★\n★        ◥⊙▆▆⊙▆▆▆⊙▆▆⊙▆▆⊙▆▆⊙◤       ★\n★      95高炮保佑       永无BUG       永不宕机     ★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★")
 		}
-		temp_spg = {{ OnloadScriptString }};
-		switch (temp_spg) {
-			case 0:
-				turnPage('/home/banner', temp_spg)
-				break
-			case 1:
-				turnPage('/home/SmallStore', temp_spg)
-				break
-
-			case 2:
-				turnPage('/home/Busstation', temp_spg)
-				break
-			case 3:
-				turnPage('/home/Wolserver', temp_spg)
-				break
-			case 4:
-				turnPage('/home/report', temp_spg)
-				break
-		}
-
-
-		if (JSON.parse(sessionStorage.getItem("file_light") === "\"LightOFF\"")) {
-			let LightOff_Class = 'bg-dark text-light';
-			let LightOn_Class = 'bg-light text-dark';
-			$("body").removeClass(LightOn_Class).addClass(LightOff_Class);
-			$("#navbar_top_main").removeClass("navbar-light navbg-light").addClass("navbar-dark navbg-dark");
-			$("#light_off").removeClass("active").addClass("disactive");
-			$("#light_on").removeClass("disactive").addClass("active");
-		}
-		//console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★\n★                                 ↖）            ★\n★                          <=======█≪             ★\n★                  ========▅▆▇█████▇            ★\n★                  ======▇█████▇█▇██              ★\n★      ▃▅▆▇██████████████▇15-95▇█████████       ★\n★    ◥███████████████████████████████████████       ★    /*这一行故意加的*/\n★      ◥⊙█████████████████████████████████⊙◤    ★\n★        ◥⊙▆▆⊙▆▆▆⊙▆▆⊙▆▆⊙▆▆⊙◤       ★\n★      95高炮保佑       永无BUG       永不宕机     ★\n★★★★★★★★★★★★★★★★★★★★★★★★★★★★")
 	}
 
 	function turnPage(url, synth) {
@@ -189,6 +171,27 @@
 			$("footer").css("height", "0")
 		} else {
 			$("footer").css("height", "var(--footer_Height)")
+		}
+	}
+
+	function getUserImg(username) {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "{{ url_for('static',filename='Media/img/user/icon/') }}" + username + ".ico");
+		xhr.responseType = "blob"
+		xhr.onload = response
+		xhr.send()
+
+		function response(e) {
+			if (xhr.response != null) {
+				var urlCreator = window.URL || window.webkitURL;
+				var imageUrl = urlCreator.createObjectURL(this.response);
+				if (xhr.status == 200) {
+					$(".usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/') }}" + username + ".ico")
+				} else {
+					$(".usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/default.ico') }}")
+
+				}
+			}
 		}
 	}
 </script>

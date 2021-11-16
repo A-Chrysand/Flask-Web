@@ -1,1 +1,27 @@
-<h2>Now here are planted to build a forum</h2>
+<div class="col-10 offset-1">
+	{% raw %}
+	<!--#添加这↖个东西，否则{{模板}}会与vue{{  }}冲突-->
+	<div id="vueapp">
+		<div v-for="item in chatinfolist">
+			<img class="chatinfo_item_img" src="item.userimgsrc">
+			<p class="chatinfo_item_text">{{ item.info }}</p>
+		</div>
+	</div>
+	<script>
+		//todo 论坛
+		//方法有，或者后台渲染前端直接用
+		function getchatinfo() {
+			$.ajax({
+				type: "get",
+				url: '/home/SmallStore/chatlist',
+				async: true,	//使用同步的方式,true为异步方式
+				success: function (data) {
+					$("#vueapp").html(data)
+				}
+			})
+		}
+
+
+	</script>
+	{% endraw %}
+</div>

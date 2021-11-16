@@ -1,0 +1,132 @@
+<div id="div_userimg">
+	<img src="#" id="usericon">
+	<br>
+	<button class="btn-primary" type="file" id="usericonbtn" onclick="dispWindow()">更换头像</button>
+</div>
+<div id="div_infobox">
+	<form>
+		<div class="mb-3">
+			<label for="input_username">User Name</label>
+			<input type="text" class="form-control" id="input_username" disabled>
+			<label for="input_username" style="font-size: 0.5rem;">改用户名会出事的</label>
+		</div>
+		<div class="mb-3">
+			<label for="input_email">Email address</label>
+			<input type="email" class="form-control" id="input_email" aria-describedby="emailHelp" disabled>
+		</div>
+		<div class="mb-3">
+			<label for="input_phone">Phone Number</label>
+			<input type="text" class="form-control" id="input_phone" aria-describedby="emailHelp" disabled>
+		</div>
+		<div class="mb-3">
+			<label for="input_schoolNumber">School Number</label>
+			<input type="text" class="form-control" id="input_schoolNumber" aria-describedby="emailHelp" disabled>
+		</div>
+		<button type="button" class="btn-primary" onclick="unlockinfo()">解锁</button>
+		<button type="button" class="btn-primary" onclick="submit_BaisicInfoChange_js_post()">提交修改</button>
+	</form>
+</div>
+<div id="tankuang" class="top-50 start-50 translate-middle" style="display: none;">
+	<div id="header">
+		<span id="header-left">!</span>
+		<span id="header-right" onclick="HideWindow('x')" class="btn-close"
+		      aria-label="Close">x</span>
+	</div>
+	<hr style="margin: 0.125rem;">
+	<div id="bodytext">
+		<form id="form_userimg" method="post" action="/api/upload" enctype="multipart/form-data">
+			<div>
+				<input id="File1" type="file" name="myfile"/>  <!--后台代码中获取文件是通过form的name来标识的-->
+				<input type="submit">提交</input>
+			</div>
+		</form>
+	</div>
+</div>
+<script>
+	//请求头像大图****************************
+	currentuser = sessionStorage.getItem("file_currentuser")
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "{{ url_for('static',filename='Media/img/user/icon/') }}" + currentuser + ".ico");
+	xhr.responseType = "blob"
+	xhr.onload = response
+	xhr.send()
+
+	function response(e) {
+		if (xhr.response != null) {
+			var urlCreator = window.URL || window.webkitURL;
+			var imageUrl = urlCreator.createObjectURL(this.response);
+			if (xhr.status == 200) {
+				$("#usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/') }}" + currentuser + ".ico")
+			} else {
+				$("#usericon").attr("src", "{{ url_for('static',filename='Media/img/user/icon/default.ico') }}")
+
+			}
+		}
+	}
+
+	$("#bodytext #form_userimg").attr("action", "/sbumit_Userimg_form_post/"+currentuser)
+	//请求头像大图****************************
+	$.ajax({
+		type: "post",
+		url: "/usercenter/js_post_basicinfo/getbasicinfo/" + currentuser,
+		async: false,	//使用同步的方式,true为异步方式
+		success: function (data) {
+			$("#input_username").val(data['Uname'])
+			$("#input_email").val(data['Umail'])
+			$("#input_phone").val(data['Uphone'])
+			$("#input_schoolNumber").val(data['Uxuehao'])
+		}
+	})
+
+	function dispWindow() {
+		document.getElementById('tankuang').style.display = "";
+	}
+
+	function HideWindow(synth) {
+		if (synth == 'x')
+			$('#tankuang').css('display', "none")
+	}
+</script>
+
+<style>
+    #tankuang {
+        position: fixed;
+        transform: translate(-50%, -50%) !important;
+        left: 50%;
+        top: 50%;
+        z-index: 2;
+        padding: 0.25rem 0.5rem;
+        width: 90%;
+        max-width: 400px;
+        background: rgba(253, 253, 233, 0.9);
+        border-color: rgba(252, 183, 79, 0.9);
+        border-width: 4px;
+        border-style: solid;
+        border-radius: 10px;
+    }
+
+    #tankuang #header-left {
+        margin-top: 0;
+        font-size: 2em;
+    }
+
+    #tankuang #header-right {
+        cursor: pointer;
+        color: red;
+        position: absolute;
+        top: -0.375em;
+        right: 0.125em;
+        font-size: 2em;
+        padding: 0;
+    }
+
+    #tankuang #bodytext {
+        width: 100%;
+        margin: 0.5em auto 3em auto;
+    }
+</style>
+
+
+
+
+

@@ -1,4 +1,4 @@
-from py_functions.account_decipher import Decipher
+from py_functions.account.account_decipher import Decipher
 
 
 class UrlDecode:
