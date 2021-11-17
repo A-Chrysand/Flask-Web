@@ -83,6 +83,9 @@ function register_js_post(send_username, send_passwd, send_email) {
         else if (data == 'passwdlengtherr') {
             alert("非法的密码长度!!!");
         }
+        else {
+            alert(data);
+        }
     });
 }
 function saveNopennewpage(save_username) {

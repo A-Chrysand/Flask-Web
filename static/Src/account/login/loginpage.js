@@ -76,10 +76,3 @@ function changetoregister() {
 		animatecounter--;
 	}
 }
-for (i = 1; i <= 8; i++) {
-	if (i != 8) {
-		document.querySelector("#pj0601id_" + i + "_1").checked = 'checked'
-	} else {
-		document.querySelector("#pj0601id_" + i + "_2").checked = 'checked'
-	}
-}

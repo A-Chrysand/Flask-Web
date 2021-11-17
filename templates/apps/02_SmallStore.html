@@ -2,26 +2,70 @@
 	{% raw %}
 	<!--#添加这↖个东西，否则{{模板}}会与vue{{  }}冲突-->
 	<div id="vueapp">
-		<div v-for="item in chatinfolist">
-			<img class="chatinfo_item_img" src="item.userimgsrc">
-			<p class="chatinfo_item_text">{{ item.info }}</p>
+		<div id="div_content">
+			<div v-for="item in chatinfolist" class="div_textline col-12">
+				<img class="img_chatinfo_item_img" :src="'/static/Media/img/user/icon/'+item.username+'.ico'">
+				<div class="div_chatinfo_item_text">
+					<p class="chatinfo_item_text"><span class="span_username">{{ item.username }}</span><span
+							class="span_devider"> | </span> <span class="span_time">{{ item.time }}</span></p>
+					<p class="chatinfo_item_text">{{item.text}}</p>
+				</div>
+			</div>
+		</div>
+		<div id="div_sendbox">
+			<div class="form-floating pt-5 col-12">
+				<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+				<label for="floatingTextarea">Comments</label>
+				<button class="btn btn-info col-4 offset-4 mt-3" type="button" @click="subimtComment">Submit</button>
+			</div>
 		</div>
 	</div>
-	<script>
-		//todo 论坛
-		//方法有，或者后台渲染前端直接用
-		function getchatinfo() {
-			$.ajax({
-				type: "get",
-				url: '/home/SmallStore/chatlist',
-				async: true,	//使用同步的方式,true为异步方式
-				success: function (data) {
-					$("#vueapp").html(data)
-				}
-			})
+</div>
+{% endraw %}
+
+<script>
+	var nvm = new Vue({
+		el: "#vueapp",
+		data: function () {
+			return {
+				chatinfolist: this.getchatinfo(),
+			}
+		},
+		methods: {
+			getchatinfo: function () {
+				var __this = this
+				$.ajax({
+					type: "get",
+					url: '/home/SmallStore/chatlist',
+					async: true,	//使用同步的方式,true为异步方式
+					success: function (data) {
+						__this.optset(data)
+					}
+				})
+			},
+			optset: function (data) {
+				console.log(data)
+				this.chatinfolist = JSON.parse(data)
+				console.log(this.chatinfolist)
+			},
+			subimtComment: function () {
+				//todo submit
+				let text=$("#floatingTextarea").val()
+				let username=sessionStorage.getItem("file_currentuser")
+				$.ajax({
+					type: "post",
+					url: '/JSPOST/submitComment/'+username+'/'+text,
+					async: true,	//使用同步的方式,true为异步方式
+					success: function (data) {
+						alert(data)
+						window.location.href="http://127.0.0.1:5000/home?i=1"
+					}
+				})
+			}
 		}
 
+	})
 
-	</script>
-	{% endraw %}
+</script>
+
 </div>

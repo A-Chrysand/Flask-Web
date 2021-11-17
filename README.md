@@ -2,11 +2,12 @@
 
 ## Intro
 This is a flask(python) project.  
-Run app.py to start the server, view localhost:5000 in browser to view the website.
+Run app.py to start the server(dev), view localhost:5000 in browser to view the website.
 ```
 python app.py
 ```
 If you want to run it on a server, you need to change app.run(host='0.0.0.0',port=***AS YOU LIKE***) in app.py
+and run deploy_server.py or/and deploy it to a Nginx Server
 
 ## Function & plan:
 > * An introduction website(√)
@@ -28,8 +29,6 @@ you may need to change the file dir path in py_functions/WebDav/webdav_filetree.
 > * Better encryption()
 
 ## Note
-~~Actually I have no idea about this project if can work successfully on my test device~~  
-Work Successfully, except downloading code from CDN server when Ethernet condition is bad.  
 > ###todo
 >   1. build usercenter
 >   2. write documents! and labes! and annotation

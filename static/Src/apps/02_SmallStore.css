@@ -1,0 +1,35 @@
+#vueapp #div_content {
+  border: 1px solid black;
+  overflow-y: auto;
+  height: calc(75vh - 56px);
+}
+#vueapp #div_content .div_textline {
+  margin-top: 1rem;
+  display: inline-flex;
+}
+#vueapp #div_content .img_chatinfo_item_img {
+  width: 50px;
+  height: 50px;
+}
+#vueapp #div_content .chatinfo_item_text {
+  line-height: 24px;
+  margin-bottom: 0;
+}
+#vueapp #div_content .chatinfo_item_text:last-child {
+  margin-top: 2px;
+}
+#vueapp #div_content .chatinfo_item_text .span_devider {
+  color: red;
+}
+#vueapp #div_sendbox {
+  margin-top: 1rem;
+  border: 1px solid black;
+  max-height: 300px;
+}
+#vueapp #div_sendbox textarea {
+  min-height: 5rem;
+  max-height: 200px;
+  padding: 0.25rem;
+}
+
+/*# sourceMappingURL=02_SmallStore.css.map */

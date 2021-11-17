@@ -85,15 +85,6 @@ body {
     display: none;
   }
 }
-#div_wide_rightuser .usericon {
-  transition: all 0.25s;
-  width: 32px;
-  margin-top: -0.2rem;
-  z-index: 10;
-}
-#div_wide_rightuser .usericon:hover {
-  transform: scale(1.35);
-}
 #div_wide_rightuser .dropdown-toggle::after {
   margin-left: 0px !important;
   filter: Invert(inherit);
